@@ -5,61 +5,86 @@
  */
 public class Section {
 	
-	String courseName;
-	String CRN;
-	String Subject;
+	private String courseName;
+	private String CRN;
+	private String subject;
+	private String campus;
+	private int capacity;
+	private int numCurrentlyEnrolled;
+	private int crossList;
 
 	/**
 	 * Default constructor for the Section class.
 	 * Initializes courseName, CRN, and Subject to empty strings.
 	 */
-<span class="fc" id="L16">	public Section() {</span>
-<span class="fc" id="L17">		this.courseName = &quot;&quot;;</span>
-<span class="fc" id="L18">		this.CRN = &quot;&quot;;</span>
-<span class="fc" id="L19">		this.Subject = &quot;&quot;;</span>
-<span class="fc" id="L20">	}</span>
+	public Section() {
+<span class="fc" id="L21">		this(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, 0);</span>
+<span class="fc" id="L22">	}</span>
 
 	/**
 	 * Constructor for the Section class.
-	 * Initializes courseName to the provided value and CRN and Subject to empty strings.
+	 * Initializes courseName to the provided value and sets CRN 
+	 * and Subject to empty strings.
+	 * 
 	 * @param courseName the name of the course
 	 */
-<span class="nc" id="L27">	public Section(String courseName) {</span>
-<span class="nc" id="L28">		this.courseName = courseName;</span>
-<span class="nc" id="L29">		this.CRN = &quot;&quot;;</span>
-<span class="nc" id="L30">		this.Subject = &quot;&quot;;</span>
-<span class="nc" id="L31">	}</span>
+	public Section(String courseName) {
+<span class="fc" id="L32">		this(courseName, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, 0);</span>
+<span class="fc" id="L33">	}</span>
+
+	/**
+	 * Constructor for the Section class.
+	 * Initializes courseName, CRN, and Subject to the provided values.
+	 * 
+	 * @param courseName the name of the course
+	 * @param CRN the CRN of the section
+	 * @param subject the subject of the section
+	 * @param campus the campus of the section
+	 * @param capacity the capacity of the section
+	 * @param numCurrentlyEnrolled the number of students currently enrolled in the section
+	 * @param crossList the cross-list section #
+	 */
+<span class="fc" id="L47">	public Section(String courseName, String CRN, String subject, String campus, int capacity, int numCurrentlyEnrolled, int crossList) {</span>
+<span class="fc" id="L48">		this.courseName = courseName;</span>
+<span class="fc" id="L49">		this.CRN = CRN;</span>
+<span class="fc" id="L50">		this.subject = subject;</span>
+<span class="fc" id="L51">		this.campus = campus;</span>
+<span class="fc" id="L52">		this.capacity = capacity;</span>
+<span class="fc" id="L53">		this.numCurrentlyEnrolled = numCurrentlyEnrolled;</span>
+<span class="fc" id="L54">		this.crossList = crossList;</span>
+<span class="fc" id="L55">	}</span>
 
 	/**
 	 * Sets the name of the course.
+	 * 
 	 * @param courseName the name of the course
 	 */
 	public void setCourseName(String courseName) {
-<span class="fc" id="L38">		this.courseName = courseName;</span>
-<span class="fc" id="L39">	}</span>
+<span class="fc" id="L63">		this.courseName = courseName;</span>
+<span class="fc" id="L64">	}</span>
 
 	/**
 	 * Gets the name of the course.
 	 * @return the name of the course
 	 */
 	public String getCourseName() {
-<span class="fc" id="L46">		return courseName;</span>
+<span class="fc" id="L71">		return courseName;</span>
 	}
 
 	/**
 	 * Sets the subject of the section.
-	 * @param Subject the subject of the section
+	 * @param subject the subject of the section
 	 */
-	public void setSubject(String Subject) {
-<span class="fc" id="L54">		this.Subject = Subject;</span>
-<span class="fc" id="L55">	}</span>
+	public void setSubject(String subject) {
+<span class="fc" id="L79">		this.subject = subject;</span>
+<span class="fc" id="L80">	}</span>
 
 	/**
 	 * Gets the subject of the section.
 	 * @return the subject of the section
 	 */
 	public String getSubject() {
-<span class="fc" id="L62">		return Subject;</span>
+<span class="fc" id="L87">		return subject;</span>
 	}
 
 	/**
@@ -67,17 +92,80 @@ public class Section {
 	 * @param CRN the CRN of the section
 	 */
 	public void setCRN(String CRN) {
-<span class="fc" id="L70">		this.CRN = CRN;</span>
-<span class="fc" id="L71">	}</span>
+<span class="fc" id="L95">		this.CRN = CRN;</span>
+<span class="fc" id="L96">	}</span>
 
 	/**
 	 * Gets the CRN of the section.
 	 * @return the CRN of the section
 	 */
 	public String getCRN() {
-<span class="fc" id="L78">		return CRN;</span>
+<span class="fc" id="L103">		return CRN;</span>
 	}
 	
+	/**
+	 * Sets the campus of the section.
+	 * @param campus the campus of the section
+	 */
+	public void setCampus(String campus) {
+<span class="fc" id="L111">		this.campus = campus;	</span>
+<span class="fc" id="L112">	}</span>
+
+	/**
+	 * Gets the campus of the section.
+	 * @return the campus of the section
+	 */
+	public String getCampus() {
+<span class="fc" id="L119">		return campus;</span>
+	}
+
+	/**
+	 * Sets the capacity of the section.
+	 * @param capacity the capacity of the section
+	 */
+	public void setCapacity(int capacity) {
+<span class="fc" id="L127">		this.capacity = capacity;</span>
+<span class="fc" id="L128">	}</span>
+
+	/**
+	 * Gets the capacity of the section.
+	 * @return the capacity of the section
+	 */
+	public int getCapacity() {
+<span class="fc" id="L135">		return capacity;</span>
+	}
+
+	/**
+	 * Sets the number of students currently enrolled in the section.
+	 * @param numCurrentlyEnrolled the number of students currently enrolled
+	 */
+	public void setNumCurrentlyEnrolled(int numCurrentlyEnrolled) {
+<span class="fc" id="L143">		this.numCurrentlyEnrolled = numCurrentlyEnrolled;</span>
+<span class="fc" id="L144">	}</span>
+
+	/**
+	 * Gets the number of students currently enrolled in the section.
+	 * @return the number of students currently enrolled
+	 */
+	public int getNumCurrentlyEnrolled() {
+<span class="fc" id="L151">		return numCurrentlyEnrolled;</span>
+	}
+
+	/**
+	 * Sets the cross-list section number.
+	 * @param crossList the cross-list section number
+	 */
+	public void setCrossList(int crossList) {
+<span class="fc" id="L159">		this.crossList = crossList;</span>
+<span class="fc" id="L160">	}</span>
+
+	/**
+	 * Gets the cross-list section number.
+	 * @return the cross-list section number
+	 */
+	public int getCrossList() {
+<span class="fc" id="L167">		return crossList;</span>
+	}
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

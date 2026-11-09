@@ -59,6 +59,7 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list">
 <li><a href="#%3Cinit%3E()" tabindex="0">Section()</a></li>
 <li><a href="#%3Cinit%3E(java.lang.String)" tabindex="0">Section(String)</a></li>
+<li><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int)" tabindex="0">Section(String, String, String, String, int, int, int)</a></li>
 </ol>
 </li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
@@ -69,6 +70,14 @@ loadScripts(document, 'script');</script>
 <li><a href="#getSubject()" tabindex="0">getSubject()</a></li>
 <li><a href="#setCRN(java.lang.String)" tabindex="0">setCRN(String)</a></li>
 <li><a href="#getCRN()" tabindex="0">getCRN()</a></li>
+<li><a href="#setCampus(java.lang.String)" tabindex="0">setCampus(String)</a></li>
+<li><a href="#getCampus()" tabindex="0">getCampus()</a></li>
+<li><a href="#setCapacity(int)" tabindex="0">setCapacity(int)</a></li>
+<li><a href="#getCapacity()" tabindex="0">getCapacity()</a></li>
+<li><a href="#setNumCurrentlyEnrolled(int)" tabindex="0">setNumCurrentlyEnrolled(int)</a></li>
+<li><a href="#getNumCurrentlyEnrolled()" tabindex="0">getNumCurrentlyEnrolled()</a></li>
+<li><a href="#setCrossList(int)" tabindex="0">setCrossList(int)</a></li>
+<li><a href="#getCrossList()" tabindex="0">getCrossList()</a></li>
 </ol>
 </li>
 </ol>
@@ -107,6 +116,16 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Constructor for the Section class.</div>
 </div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int)" class="member-name-link">Section</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;courseName,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;CRN,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;campus,
+ int&nbsp;capacity,
+ int&nbsp;numCurrentlyEnrolled,
+ int&nbsp;crossList)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Constructor for the Section class.</div>
+</div>
 </div>
 </section>
 </li>
@@ -122,6 +141,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCampus()" class="member-name-link">getCampus</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the campus of the section.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCapacity()" class="member-name-link">getCapacity</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the capacity of the section.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCourseName()" class="member-name-link">getCourseName</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the name of the course.</div>
@@ -131,10 +160,30 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the CRN of the section.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCrossList()" class="member-name-link">getCrossList</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the cross-list section number.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNumCurrentlyEnrolled()" class="member-name-link">getNumCurrentlyEnrolled</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the number of students currently enrolled in the section.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSubject()" class="member-name-link">getSubject</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the subject of the section.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCampus(java.lang.String)" class="member-name-link">setCampus</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;campus)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the campus of the section.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCapacity(int)" class="member-name-link">setCapacity</a><wbr>(int&nbsp;capacity)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the capacity of the section.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCourseName(java.lang.String)" class="member-name-link">setCourseName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;courseName)</code></div>
@@ -147,7 +196,17 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets the CRN of the section.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSubject(java.lang.String)" class="member-name-link">setSubject</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;Subject)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCrossList(int)" class="member-name-link">setCrossList</a><wbr>(int&nbsp;crossList)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the cross-list section number.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNumCurrentlyEnrolled(int)" class="member-name-link">setNumCurrentlyEnrolled</a><wbr>(int&nbsp;numCurrentlyEnrolled)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the number of students currently enrolled in the section.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSubject(java.lang.String)" class="member-name-link">setSubject</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the subject of the section.</div>
 </div>
@@ -184,10 +243,37 @@ Initializes courseName, CRN, and Subject to empty strings.</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Section</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;courseName)</span></div>
 <div class="block">Constructor for the Section class.
-Initializes courseName to the provided value and CRN and Subject to empty strings.</div>
+Initializes courseName to the provided value and sets CRN 
+and Subject to empty strings.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>courseName</code> - the name of the course</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,int,int)">
+<h3>Section</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Section</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;courseName,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;CRN,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;campus,
+ int&nbsp;capacity,
+ int&nbsp;numCurrentlyEnrolled,
+ int&nbsp;crossList)</span></div>
+<div class="block">Constructor for the Section class.
+Initializes courseName, CRN, and Subject to the provided values.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>courseName</code> - the name of the course</dd>
+<dd><code>CRN</code> - the CRN of the section</dd>
+<dd><code>subject</code> - the subject of the section</dd>
+<dd><code>campus</code> - the campus of the section</dd>
+<dd><code>capacity</code> - the capacity of the section</dd>
+<dd><code>numCurrentlyEnrolled</code> - the number of students currently enrolled in the section</dd>
+<dd><code>crossList</code> - the cross-list section #</dd>
 </dl>
 </div>
 </section>
@@ -230,11 +316,11 @@ Initializes courseName to the provided value and CRN and Subject to empty string
 <section class="detail" id="setSubject(java.lang.String)">
 <h3>setSubject</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSubject</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;Subject)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSubject</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject)</span></div>
 <div class="block">Sets the subject of the section.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>Subject</code> - the subject of the section</dd>
+<dd><code>subject</code> - the subject of the section</dd>
 </dl>
 </div>
 </section>
@@ -274,6 +360,110 @@ Initializes courseName to the provided value and CRN and Subject to empty string
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the CRN of the section</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setCampus(java.lang.String)">
+<h3>setCampus</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCampus</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;campus)</span></div>
+<div class="block">Sets the campus of the section.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>campus</code> - the campus of the section</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCampus()">
+<h3>getCampus</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getCampus</span>()</div>
+<div class="block">Gets the campus of the section.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the campus of the section</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setCapacity(int)">
+<h3>setCapacity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCapacity</span><wbr><span class="parameters">(int&nbsp;capacity)</span></div>
+<div class="block">Sets the capacity of the section.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>capacity</code> - the capacity of the section</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCapacity()">
+<h3>getCapacity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getCapacity</span>()</div>
+<div class="block">Gets the capacity of the section.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the capacity of the section</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setNumCurrentlyEnrolled(int)">
+<h3>setNumCurrentlyEnrolled</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setNumCurrentlyEnrolled</span><wbr><span class="parameters">(int&nbsp;numCurrentlyEnrolled)</span></div>
+<div class="block">Sets the number of students currently enrolled in the section.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numCurrentlyEnrolled</code> - the number of students currently enrolled</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getNumCurrentlyEnrolled()">
+<h3>getNumCurrentlyEnrolled</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getNumCurrentlyEnrolled</span>()</div>
+<div class="block">Gets the number of students currently enrolled in the section.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the number of students currently enrolled</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setCrossList(int)">
+<h3>setCrossList</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCrossList</span><wbr><span class="parameters">(int&nbsp;crossList)</span></div>
+<div class="block">Sets the cross-list section number.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>crossList</code> - the cross-list section number</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCrossList()">
+<h3>getCrossList</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getCrossList</span>()</div>
+<div class="block">Gets the cross-list section number.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the cross-list section number</dd>
 </dl>
 </div>
 </section>
