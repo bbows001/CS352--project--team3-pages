@@ -1,28 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Offering.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350</a> &gt; <span class="el_source">Offering.java</span></div><h1>Offering.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents an offering of a course.
  */
 public class Offering {
 
 	private String instructor;
+	private List&lt;Section&gt; sections;
+	private int term;
 
 	/**
 	 * Default constructor for the Offering class.
 	 * Initializes instructor to an empty string.
 	 */
-<span class="nc" id="L14">	public Offering() {</span>
-<span class="nc" id="L15">		this.instructor = &quot;&quot;;</span>
-<span class="nc" id="L16">	}</span>
+<span class="fc" id="L19">	public Offering() {</span>
+<span class="fc" id="L20">		this.instructor = &quot;&quot;;</span>
+<span class="fc" id="L21">		this.term = 10; //Default term is Fall (10), other options are Summer (20) or Fall (30).</span>
+<span class="fc" id="L22">		this.sections = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L23">	}</span>
 
 	/**
 	 * Constructor for the Offering class.
 	 * Initializes instructor to the provided value.
-	 * @param string the name of the instructor
+	 * @param instructor the name of the instructor
 	 */
-<span class="fc" id="L23">	public Offering(String string) {</span>
-<span class="fc" id="L24">		this.instructor = string;</span>
-<span class="fc" id="L25">	}</span>
+<span class="nc" id="L30">	public Offering(String instructor) {</span>
+<span class="nc" id="L31">		this.instructor = instructor;</span>
+<span class="nc" id="L32">		this.term = 10;</span>
+<span class="nc" id="L33">		this.sections = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L34">	}</span>
+	
+<span class="nc" id="L36">	public Offering(String instructor, int term) {</span>
+<span class="nc" id="L37">		this.instructor = instructor;</span>
+<span class="nc" id="L38">		this.sections = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L39">		setTerm(term);</span>
+<span class="nc" id="L40">	}</span>
+	
+<span class="nc" id="L42">	public Offering(String instructor, int term, List&lt;Section&gt; sections) {</span>
+<span class="nc" id="L43">		this.instructor = instructor;</span>
+<span class="nc" id="L44">		this.term = term;</span>
+<span class="nc" id="L45">		this.sections = new ArrayList&lt;&gt;(sections);</span>
+<span class="nc" id="L46">	}</span>
 
 	// Setters and Getters
 	/**
@@ -30,16 +51,64 @@ public class Offering {
 	 * @param instructor the instructor to set
 	 */
 	public void setInstructor(String instructor) {
-<span class="fc" id="L33">		this.instructor = instructor;</span>
-<span class="fc" id="L34">	}</span>
-
+<span class="fc" id="L54">		this.instructor = instructor;</span>
+<span class="fc" id="L55">	}</span>
+	
 	/**
 	 * Gets the instructor for the offering.
 	 * @return the instructor
 	 */
 	public String getInstructor() {
-<span class="fc" id="L41">		return instructor;</span>
+<span class="fc" id="L62">		return instructor;</span>
 	}
+
+	public void setTerm(int term) {
+		// TODO Auto-generated method stub
+<span class="fc bfc" id="L67" title="All 6 branches covered.">		if (term != 10 &amp;&amp; term !=20 &amp;&amp; term != 30) {</span>
+<span class="fc" id="L68">			throw new IllegalArgumentException(&quot;Invalid term. Term must be either Fall (10), Spring (20) or Summer (30).&quot;);</span>
+		}
+		else {
+<span class="fc" id="L71">			this.term = term;</span>
+		}
+<span class="fc" id="L73">	}</span>
+	
+	public int getTerm() {
+<span class="fc" id="L76">	    return term;</span>
+	}
+	
+	public void addSection(Section section) {
+		// TODO Auto-generated method stub
+<span class="fc" id="L81">		sections.add(section);</span>
+<span class="fc" id="L82">	}</span>
+	
+	public List&lt;Section&gt; getSections(){
+<span class="fc" id="L85">		return sections;</span>
+	}
+
+	public void removeSection(Section section) {
+		// TODO Auto-generated method stub
+<span class="fc" id="L90">		sections.remove(section);</span>
+<span class="fc" id="L91">	}</span>
+
+	public int getTotalEnrollment() {
+		// TODO Auto-generated method stub
+<span class="fc" id="L95">		int totalEnrolled = 0;  </span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">		for (Section s : sections) {</span>
+<span class="fc" id="L97">		       totalEnrolled += s.getNumCurrentlyEnrolled();</span>
+<span class="fc" id="L98">		    }</span>
+<span class="fc" id="L99">		return totalEnrolled;</span>
+	}
+
+	public int getTotalCapacity() {
+		// TODO Auto-generated method stub
+<span class="fc" id="L104">		int totalCapacity = 0;  </span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">		for (Section s : sections) {</span>
+<span class="fc" id="L106">		       totalCapacity += s.getCapacity();</span>
+<span class="fc" id="L107">		    }</span>
+<span class="fc" id="L108">		return totalCapacity;</span>
+	}
+
+	
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
