@@ -70,10 +70,12 @@ loadScripts(document, 'script');</script>
 <li><a href="#setTerm(int)" tabindex="0">setTerm(int)</a></li>
 <li><a href="#getTerm()" tabindex="0">getTerm()</a></li>
 <li><a href="#addSection(edu.odu.cs.cs350.Section)" tabindex="0">addSection(Section)</a></li>
-<li><a href="#getSections()" tabindex="0">getSections()</a></li>
+<li><a href="#getAllSections()" tabindex="0">getAllSections()</a></li>
 <li><a href="#removeSection(edu.odu.cs.cs350.Section)" tabindex="0">removeSection(Section)</a></li>
 <li><a href="#getTotalEnrollment()" tabindex="0">getTotalEnrollment()</a></li>
 <li><a href="#getTotalCapacity()" tabindex="0">getTotalCapacity()</a></li>
+<li><a href="#getSectionsByCRN(java.lang.String)" tabindex="0">getSectionsByCRN(String)</a></li>
+<li><a href="#sectionsAtCapacity()" tabindex="0">sectionsAtCapacity()</a></li>
 </ol>
 </li>
 </ol>
@@ -114,11 +116,15 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,int)" class="member-name-link">Offering</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;instructor,
  int&nbsp;term)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructor for the Offering class.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,int,java.util.List)" class="member-name-link">Offering</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;instructor,
  int&nbsp;term,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&nbsp;sections)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Constructor for the Offering class.</div>
+</div>
 </div>
 </section>
 </li>
@@ -135,27 +141,49 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addSection(edu.odu.cs.cs350.Section)" class="member-name-link">addSection</a><wbr>(<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&nbsp;section)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInstructor()" class="member-name-link">getInstructor</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds a new section to the the offering.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllSections()" class="member-name-link">getAllSections</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the full list of sections from the offering.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInstructor()" class="member-name-link">getInstructor</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the instructor for the offering.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSections()" class="member-name-link">getSections</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTerm()" class="member-name-link">getTerm</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Section.html" title="class in edu.odu.cs.cs350">Section</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSectionsByCRN(java.lang.String)" class="member-name-link">getSectionsByCRN</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;CRN)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets a specific section from the offering based on the CRN of said section.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalCapacity()" class="member-name-link">getTotalCapacity</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTerm()" class="member-name-link">getTerm</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the term for the offering.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalEnrollment()" class="member-name-link">getTotalEnrollment</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeSection(edu.odu.cs.cs350.Section)" class="member-name-link">removeSection</a><wbr>(<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&nbsp;section)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalCapacity()" class="member-name-link">getTotalCapacity</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the total capacity of all sections from the offering.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalEnrollment()" class="member-name-link">getTotalEnrollment</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the total enrollment of all sections from the offering.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeSection(edu.odu.cs.cs350.Section)" class="member-name-link">removeSection</a><wbr>(<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&nbsp;section)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes an existing section to the the offering.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sectionsAtCapacity()" class="member-name-link">sectionsAtCapacity</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets a the number of sections that are at capacity or above capacity.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setInstructor(java.lang.String)" class="member-name-link">setInstructor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;instructor)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -163,7 +191,9 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTerm(int)" class="member-name-link">setTerm</a><wbr>(int&nbsp;term)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the term for the offering and validates its inputs.</div>
+</div>
 </div>
 </div>
 </div>
@@ -187,7 +217,8 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Offering</span>()</div>
 <div class="block">Default constructor for the Offering class.
-Initializes instructor to an empty string.</div>
+Initializes instructor to an empty string.
+Default term is Fall (10)</div>
 </div>
 </section>
 </li>
@@ -211,6 +242,13 @@ Initializes instructor to the provided value.</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Offering</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;instructor,
  int&nbsp;term)</span></div>
+<div class="block">Constructor for the Offering class.
+Initializes instructor to the provided value.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>instructor</code> - the name of the instructor</dd>
+<dd><code>term</code> - the name of the term of the offering</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -221,6 +259,14 @@ Initializes instructor to the provided value.</div>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Offering</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;instructor,
  int&nbsp;term,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&nbsp;sections)</span></div>
+<div class="block">Constructor for the Offering class.
+Initializes instructor to the provided value.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>instructor</code> - , the name of the instructor</dd>
+<dd><code>term</code> - , the name of the term of the offering</dd>
+<dd><code>sections</code> - , the list of sections in the offering</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -263,6 +309,11 @@ Initializes instructor to the provided value.</div>
 <h3>setTerm</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setTerm</span><wbr><span class="parameters">(int&nbsp;term)</span></div>
+<div class="block">Sets the term for the offering and validates its inputs.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>term</code> - , the name of the term of the offering</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -271,6 +322,11 @@ Initializes instructor to the provided value.</div>
 <h3>getTerm</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTerm</span>()</div>
+<div class="block">Gets the term for the offering.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the term</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -279,14 +335,24 @@ Initializes instructor to the provided value.</div>
 <h3>addSection</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addSection</span><wbr><span class="parameters">(<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&nbsp;section)</span></div>
+<div class="block">Adds a new section to the the offering.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>section</code> - , an individual section inside of the lists of sections in the offering</dd>
+</dl>
 </div>
 </section>
 </li>
 <li>
-<section class="detail" id="getSections()">
-<h3>getSections</h3>
+<section class="detail" id="getAllSections()">
+<h3>getAllSections</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;</span>&nbsp;<span class="element-name">getSections</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;</span>&nbsp;<span class="element-name">getAllSections</span>()</div>
+<div class="block">Gets the full list of sections from the offering.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>all the sections</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -295,6 +361,11 @@ Initializes instructor to the provided value.</div>
 <h3>removeSection</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeSection</span><wbr><span class="parameters">(<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&nbsp;section)</span></div>
+<div class="block">Removes an existing section to the the offering.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>section</code> - , an individual section inside of the lists of sections in the offering</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -303,6 +374,11 @@ Initializes instructor to the provided value.</div>
 <h3>getTotalEnrollment</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTotalEnrollment</span>()</div>
+<div class="block">Gets the total enrollment of all sections from the offering.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the total enrolled students</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -311,6 +387,39 @@ Initializes instructor to the provided value.</div>
 <h3>getTotalCapacity</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTotalCapacity</span>()</div>
+<div class="block">Gets the total capacity of all sections from the offering.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the total capacity of all sections in an offering</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSectionsByCRN(java.lang.String)">
+<h3>getSectionsByCRN</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Section.html" title="class in edu.odu.cs.cs350">Section</a></span>&nbsp;<span class="element-name">getSectionsByCRN</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;CRN)</span></div>
+<div class="block">Gets a specific section from the offering based on the CRN of said section.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>CRN</code> - , the CRN of the section</dd>
+<dt>Returns:</dt>
+<dd>null if the offering is empty or if the search does not find the CRN or the section whose CRN matches the one in the parameter.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sectionsAtCapacity()">
+<h3>sectionsAtCapacity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">sectionsAtCapacity</span>()</div>
+<div class="block">Gets a the number of sections that are at capacity or above capacity.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the number of section that were identified as being at capacity of above capacity.</dd>
+</dl>
 </div>
 </section>
 </li>
