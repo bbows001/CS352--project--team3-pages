@@ -49,7 +49,7 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1>Index</h1>
 </div>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
 <dt><a href="edu/odu/cs/cs350/Offering.html#addSection(edu.odu.cs.cs350.Section)" class="member-name-link">addSection(Section)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Offering.html" title="class in edu.odu.cs.cs350">Offering</a></dt>
@@ -72,6 +72,18 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/EnrollmentProjectionSystem.html#%3Cinit%3E()" class="member-name-link">EnrollmentProjectionSystem()</a> - Constructor for class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentProjectionSystem.html" title="class in edu.odu.cs.cs350">EnrollmentProjectionSystem</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html" class="type-name-link" title="class in edu.odu.cs.cs350">EnrollmentWindow</a> - Class in <a href="edu/odu/cs/cs350/package-summary.html">edu.odu.cs.cs350</a></dt>
+<dd>
+<div class="block">Represents an enrollment window with start and end dates.</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#%3Cinit%3E()" class="member-name-link">EnrollmentWindow()</a> - Constructor for class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Default constructor for the EnrollmentWindow class.</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#%3Cinit%3E(java.time.LocalDate,java.time.LocalDate)" class="member-name-link">EnrollmentWindow(LocalDate, LocalDate)</a> - Constructor for class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Constructor for the EnrollmentWindow class.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
@@ -99,6 +111,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Gets the cross-list section number.</div>
 </dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#getDuration()" class="member-name-link">getDuration()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Calculates the duration of the enrollment window in days.</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#getEndDate()" class="member-name-link">getEndDate()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Gets the end date of the enrollment window.</div>
+</dd>
 <dt><a href="edu/odu/cs/cs350/Offering.html#getInstructor()" class="member-name-link">getInstructor()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Offering.html" title="class in edu.odu.cs.cs350">Offering</a></dt>
 <dd>
 <div class="block">Gets the instructor for the offering.</div>
@@ -110,6 +130,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="edu/odu/cs/cs350/Offering.html#getSectionsByCRN(java.lang.String)" class="member-name-link">getSectionsByCRN(String)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Offering.html" title="class in edu.odu.cs.cs350">Offering</a></dt>
 <dd>
 <div class="block">Gets a specific section from the offering based on the CRN of said section.</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#getStartDate()" class="member-name-link">getStartDate()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Gets the start date of the enrollment window.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/Section.html#getSubject()" class="member-name-link">getSubject()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
 <dd>
@@ -127,6 +151,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Gets the total enrollment of all sections from the offering.</div>
 </dd>
+</dl>
+<h2 class="title" id="I:L">L</h2>
+<dl class="index">
+<dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html#locateEnrollmentSnapshots(java.nio.file.Path)" class="member-name-link">locateEnrollmentSnapshots(Path)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
@@ -162,6 +191,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:R">R</h2>
 <dl class="index">
+<dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html#readDates(java.nio.file.Path)" class="member-name-link">readDates(Path)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html#readEnrollmentSnapshot(java.nio.file.Path)" class="member-name-link">readEnrollmentSnapshot(Path)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" class="type-name-link" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a> - Class in <a href="edu/odu/cs/cs350/package-summary.html">edu.odu.cs.cs350</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html#%3Cinit%3E()" class="member-name-link">ReadSemesterEnrollmentData()</a> - Constructor for class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a></dt>
@@ -213,6 +246,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Sets the cross-list section number.</div>
 </dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#setEndDate(java.time.LocalDate)" class="member-name-link">setEndDate(LocalDate)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Sets the end date of the enrollment window.</div>
+</dd>
 <dt><a href="edu/odu/cs/cs350/Offering.html#setInstructor(java.lang.String)" class="member-name-link">setInstructor(String)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Offering.html" title="class in edu.odu.cs.cs350">Offering</a></dt>
 <dd>
 <div class="block">Sets the instructor for the offering.</div>
@@ -220,6 +257,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="edu/odu/cs/cs350/Section.html#setNumCurrentlyEnrolled(int)" class="member-name-link">setNumCurrentlyEnrolled(int)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
 <dd>
 <div class="block">Sets the number of students currently enrolled in the section.</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#setStartDate(java.time.LocalDate)" class="member-name-link">setStartDate(LocalDate)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Sets the start date of the enrollment window.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/Section.html#setSubject(java.lang.String)" class="member-name-link">setSubject(String)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
 <dd>
@@ -230,7 +271,14 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets the term for the offering and validates its inputs.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
+<h2 class="title" id="I:V">V</h2>
+<dl class="index">
+<dt><a href="edu/odu/cs/cs350/EnrollmentWindow.html#validateDates()" class="member-name-link">validateDates()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></dt>
+<dd>
+<div class="block">Throws an IllegalArgumentException if the end date is before the start date.</div>
+</dd>
+</dl>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
 </div>
 </body>
 </html>
