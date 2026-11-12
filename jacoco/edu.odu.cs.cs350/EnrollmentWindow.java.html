@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EnrollmentWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350</a> &gt; <span class="el_source">EnrollmentWindow.java</span></div><h1>EnrollmentWindow.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -14,10 +13,10 @@ public class EnrollmentWindow {
      * Default constructor for the EnrollmentWindow class.
      * Initializes startDate and endDate to null.
      */
-<span class="fc" id="L17">    public EnrollmentWindow() {</span>
-<span class="fc" id="L18">        this.startDate = null;</span>
-<span class="fc" id="L19">        this.endDate = null;</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L16">    public EnrollmentWindow() {</span>
+<span class="fc" id="L17">        this.startDate = null;</span>
+<span class="fc" id="L18">        this.endDate = null;</span>
+<span class="fc" id="L19">    }</span>
 
     /**
      * Constructor for the EnrollmentWindow class.
@@ -26,11 +25,11 @@ public class EnrollmentWindow {
      * @param startDate the start date of the enrollment window
      * @param endDate   the end date of the enrollment window
      */
-<span class="fc" id="L29">    public EnrollmentWindow(LocalDate startDate, LocalDate endDate) {</span>
-<span class="fc" id="L30">        this.startDate = startDate;</span>
-<span class="fc" id="L31">        this.endDate = endDate;</span>
-<span class="fc" id="L32">        validateDates(); // Validate the dates upon creation</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L28">    public EnrollmentWindow(LocalDate startDate, LocalDate endDate) {</span>
+<span class="fc" id="L29">        this.startDate = startDate;</span>
+<span class="fc" id="L30">        this.endDate = endDate;</span>
+<span class="fc" id="L31">        validateDates(); // Validate the dates upon creation</span>
+<span class="fc" id="L32">    }</span>
 
     /**
      * Sets the start date of the enrollment window.
@@ -38,8 +37,8 @@ public class EnrollmentWindow {
      * @param startDate the start date to set
      */
     public void setStartDate(LocalDate startDate) {
-<span class="fc" id="L41">        this.startDate = startDate;</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L40">        this.startDate = startDate;</span>
+<span class="fc" id="L41">    }</span>
 
     /**
      * Gets the start date of the enrollment window.
@@ -47,7 +46,7 @@ public class EnrollmentWindow {
      * @return the start date
      */
     public LocalDate getStartDate() {
-<span class="fc" id="L50">        return startDate;</span>
+<span class="fc" id="L49">        return startDate;</span>
     }
 
     /**
@@ -56,8 +55,8 @@ public class EnrollmentWindow {
      * @param endDate the end date to set
      */
     public void setEndDate(LocalDate endDate) {
-<span class="fc" id="L59">        this.endDate = endDate;</span>
-<span class="fc" id="L60">    }  </span>
+<span class="fc" id="L58">        this.endDate = endDate;</span>
+<span class="fc" id="L59">    }  </span>
 
     /**
      * Gets the end date of the enrollment window.
@@ -65,7 +64,7 @@ public class EnrollmentWindow {
      * @return the end date
      */
     public LocalDate getEndDate() {
-<span class="fc" id="L68">        return endDate;</span>
+<span class="fc" id="L67">        return endDate;</span>
     }
 
     /**
@@ -74,10 +73,10 @@ public class EnrollmentWindow {
      * @return the duration in days
      */
     public int getDuration() {
-<span class="fc bfc" id="L77" title="All 4 branches covered.">        if (startDate != null &amp;&amp; endDate != null) {</span>
-<span class="fc" id="L78">            return (int) java.time.temporal.ChronoUnit.DAYS.between(startDate, endDate);</span>
+<span class="fc bfc" id="L76" title="All 4 branches covered.">        if (startDate != null &amp;&amp; endDate != null) {</span>
+<span class="fc" id="L77">            return (int) java.time.temporal.ChronoUnit.DAYS.between(startDate, endDate);</span>
         }
-<span class="fc" id="L80">        return 0;</span>
+<span class="fc" id="L79">        return 0;</span>
     }
 
     /**
@@ -86,29 +85,29 @@ public class EnrollmentWindow {
      * @throws IllegalArgumentException if the end date is before the start date
      */
     public void validateDates() {
-<span class="fc bfc" id="L89" title="All 6 branches covered.">        if (startDate != null &amp;&amp; endDate != null &amp;&amp; endDate.isBefore(startDate)) {</span>
-<span class="fc" id="L90">            throw new IllegalArgumentException(&quot;End date cannot be before start date.&quot;);</span>
+<span class="fc bfc" id="L88" title="All 6 branches covered.">        if (startDate != null &amp;&amp; endDate != null &amp;&amp; endDate.isBefore(startDate)) {</span>
+<span class="fc" id="L89">            throw new IllegalArgumentException(&quot;End date cannot be before start date.&quot;);</span>
         }  
-<span class="fc" id="L92">    }</span>
+<span class="fc" id="L91">    }</span>
     /**Calculates the elapsed percentage of the enrollment window
      * @param currentDate and the start/end dates of the enrollment window
      * @return the percentage elapsed of the enrollment period
      * @throws IllegalArgumentException if the dates are invalid
      * 
      */
-    public double getElapsedEnrollmentPercent(LocalDate currentDate){
-<span class="fc bfc" id="L100" title="All 4 branches covered.">        if (startDate ==null || endDate == null){</span>
-<span class="fc" id="L101">            throw new IllegalArgumentException(&quot;Invalid start or end date.&quot;);</span>
+    public double getElapsedEnrollmentPercent(LocalDate currentDate) {
+<span class="fc bfc" id="L99" title="All 4 branches covered.">        if (startDate == null || endDate == null) {</span>
+<span class="fc" id="L100">            throw new IllegalArgumentException(&quot;Invalid start or end date.&quot;);</span>
         }
-<span class="fc bfc" id="L103" title="All 6 branches covered.">        if (currentDate == null || currentDate.isBefore(startDate) || currentDate.isAfter(endDate)){</span>
-<span class="fc" id="L104">            throw new IllegalArgumentException(&quot;Current date is not within the enrollment window.&quot;);</span>
+<span class="fc bfc" id="L102" title="All 6 branches covered.">        if (currentDate == null || currentDate.isBefore(startDate) || currentDate.isAfter(endDate)) {</span>
+<span class="fc" id="L103">            throw new IllegalArgumentException(&quot;Current date is not within the enrollment window.&quot;);</span>
         }
-<span class="fc" id="L106">        double totalDays = ChronoUnit.DAYS.between(startDate, endDate);</span>
-<span class="fc" id="L107">        double elapsedDays = ChronoUnit.DAYS.between(startDate, currentDate);</span>
-<span class="fc" id="L108">        double elapsedPercent = (elapsedDays/totalDays) *100;</span>
-<span class="fc" id="L109">        return elapsedPercent;</span>
-        }
+<span class="fc" id="L105">        double totalDays = ChronoUnit.DAYS.between(startDate, endDate);</span>
+<span class="fc" id="L106">        double elapsedDays = ChronoUnit.DAYS.between(startDate, currentDate);</span>
+<span class="fc" id="L107">        double elapsedPercent = (elapsedDays / totalDays) * 100;</span>
+<span class="fc" id="L108">        return elapsedPercent;</span>
     }
+}
 
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
