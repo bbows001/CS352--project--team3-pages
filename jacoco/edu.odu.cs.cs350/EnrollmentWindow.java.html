@@ -74,10 +74,10 @@ public class EnrollmentWindow {
      * @return the duration in days
      */
     public int getDuration() {
-<span class="pc bpc" id="L77" title="2 of 4 branches missed.">        if (startDate != null &amp;&amp; endDate != null) {</span>
+<span class="pc bpc" id="L77" title="1 of 4 branches missed.">        if (startDate != null &amp;&amp; endDate != null) {</span>
 <span class="fc" id="L78">            return (int) java.time.temporal.ChronoUnit.DAYS.between(startDate, endDate);</span>
         }
-<span class="nc" id="L80">        return 0;</span>
+<span class="fc" id="L80">        return 0;</span>
     }
 
     /**
