@@ -11,55 +11,111 @@ import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord; 
+import org.apache.commons.csv.CSVRecord;
 
-
-//Read semster enrollment info
-<span class="fc" id="L18">public class ReadSemesterEnrollmentData {</span>
-	public List&lt;LocalDate&gt; readDates(Path semesterFolder) throws IOException{
-<span class="fc" id="L20">		Path filePath = semesterFolder.resolve(&quot;dates.txt&quot;);</span>
-<span class="fc bfc" id="L21" title="All 2 branches covered.">		if(!Files.exists(filePath)){</span>
-<span class="fc" id="L22">			throw new IOException(&quot;Missing dates.txt in &quot; + semesterFolder.getFileName());</span>
+/**
+ * Reads/validates semester enrollment data from CSV files and date information.
+ */
+<span class="fc" id="L19">public class ReadSemesterEnrollmentData {</span>
+/** Read/validate the semester date from data text file
+ * @param semesterFolder Path to the semester folder
+ * @return List of LocalDate objects representing the semester start and end dates
+ * @throws IOException if the dates.txt file is missing or has an invalid number of dates
+*/
+	public List&lt;LocalDate&gt; readDates(Path semesterFolder) throws IOException {
+<span class="fc" id="L26">		Path filePath = semesterFolder.resolve(&quot;dates.txt&quot;);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">		if (!Files.exists(filePath)) {</span>
+<span class="fc" id="L28">			throw new IOException(&quot;Missing dates.txt in &quot; + semesterFolder.getFileName());</span>
 		}
-<span class="fc" id="L24">		List&lt;String&gt; lines = Files.readAllLines(filePath);</span>
-<span class="fc bfc" id="L25" title="All 2 branches covered.">		 if(lines.size() !=2){</span>
-<span class="fc" id="L26">			throw new IOException(&quot;Invalid number of dates in &quot; + semesterFolder.getFileName());</span>
-		 }
-<span class="fc" id="L28">		List&lt;LocalDate&gt; dates = new java.util.ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L29" title="All 2 branches covered.">		for (String line : lines){</span>
-<span class="fc" id="L30">			dates.add(LocalDate.parse(line));</span>
-<span class="fc" id="L31">		}</span>
-<span class="fc" id="L32">		return dates;</span>
+<span class="fc" id="L30">		List&lt;String&gt; lines = Files.readAllLines(filePath);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">		if (lines.size() != 2) {</span>
+<span class="fc" id="L32">			throw new IOException(&quot;Invalid number of dates in &quot; + semesterFolder.getFileName());</span>
+		}
+<span class="fc" id="L34">		List&lt;LocalDate&gt; dates = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">		for (String line : lines) {</span>
+<span class="fc" id="L36">			dates.add(LocalDate.parse(line));</span>
+<span class="fc" id="L37">		}</span>
+<span class="fc" id="L38">		return dates;</span>
 	}
 
-    public List&lt;Section&gt; readEnrollmentSnapshot(Path csvTestFile) throws IOException {
-<span class="fc" id="L36">		List&lt;Section&gt; sections = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L37">		try(CSVParser parser = CSVParser.parse(csvTestFile, StandardCharsets.UTF_8, </span>
-<span class="fc" id="L38">			CSVFormat.DEFAULT.withFirstRecordAsHeader().withAllowMissingColumnNames())){</span>
-<span class="fc bfc" id="L39" title="All 2 branches covered.">		for (CSVRecord row : parser){</span>
-			
-<span class="fc" id="L41">			String crn = row.get(&quot;CRN&quot;);</span>
-<span class="fc" id="L42">            String subject = row.get(&quot;SUBJ&quot;);</span>
-<span class="fc" id="L43">            String courseNumber = row.get(&quot;CRSE&quot;);</span>
-<span class="fc" id="L44">            String campus = row.get(&quot;CAMPUS&quot;);</span>
+	/** Read a CSV enrollment snapshot and return a list of section objects
+	 * @param csvTestFile path to the enrollment snapshot CSV file
+	 * @return list of section objects
+	 * @throws IOException if the file has bad data or missing data
+	 */
+	public List&lt;Section&gt; readEnrollmentSnapshot(Path csvTestFile) throws IOException {
+<span class="fc" id="L47">		List&lt;Section&gt; sections = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L48">		try (CSVParser parser = CSVParser.parse(csvTestFile, StandardCharsets.UTF_8,</span>
+<span class="fc" id="L49">				CSVFormat.DEFAULT.withFirstRecordAsHeader().withAllowMissingColumnNames())) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">			for (CSVRecord row : parser) {</span>
 
-<span class="fc" id="L46">            int capacity = Integer.parseInt(row.get(&quot;XLST CAP&quot;));</span>
-<span class="fc" id="L47">            int enrollment = Integer.parseInt(row.get(&quot;ENR&quot;));</span>
-<span class="fc" id="L48">			Section section = new Section( </span>
-				subject + courseNumber, crn, subject, campus, capacity, enrollment, 0);
-<span class="fc" id="L50">			sections.add(section);</span>
-<span class="fc" id="L51">		}}</span>
-<span class="fc" id="L52">			return sections;</span>
+<span class="fc" id="L52">				String crn = row.get(&quot;CRN&quot;);</span>
+<span class="fc" id="L53">				String subject = row.get(&quot;SUBJ&quot;);</span>
+<span class="fc" id="L54">				String courseNumber = row.get(&quot;CRSE&quot;);</span>
+<span class="fc" id="L55">				String campus = row.get(&quot;CAMPUS&quot;);</span>
+
+<span class="fc" id="L57">				int capacity = Integer.parseInt(row.get(&quot;XLST CAP&quot;));</span>
+<span class="fc" id="L58">				int enrollment = Integer.parseInt(row.get(&quot;ENR&quot;));</span>
+<span class="fc" id="L59">				Section section = new Section(</span>
+						subject + courseNumber, crn, subject, campus, capacity, enrollment, 0);
+<span class="fc" id="L61">				sections.add(section);</span>
+<span class="fc" id="L62">			}</span>
 		}
-		public List&lt;Path&gt; locateEnrollmentSnapshots(Path semesterFolder) throws IOException {
-<span class="fc" id="L55">			List&lt;Path&gt; files = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L56">			try(DirectoryStream&lt;Path&gt; stream = Files.newDirectoryStream(semesterFolder, &quot;*.csv&quot;)){</span>
-				
-<span class="fc bfc" id="L58" title="All 2 branches covered.">		for (Path file : stream){</span>
-<span class="fc" id="L59">			files.add(file);</span>
+<span class="fc" id="L64">		return sections;</span>
+	}
 
-<span class="fc" id="L61">		}		}</span>
-<span class="fc" id="L62">		files.sort(null);</span>
-<span class="fc" id="L63">		return files;</span>
-	}}
+	/** Find/sort CSV snapshot files in a semester folder
+	 * @param semesterFolder path to the semester directory
+	 * @return Array list of snapshot files
+	 * @throws IOException if the file folder can not be read
+	 * */
+
+	public List&lt;Path&gt; locateEnrollmentSnapshots(Path semesterFolder) throws IOException {
+<span class="fc" id="L74">		List&lt;Path&gt; files = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L75">		try (DirectoryStream&lt;Path&gt; stream = Files.newDirectoryStream(semesterFolder, &quot;*.csv&quot;)) {</span>
+
+<span class="fc bfc" id="L77" title="All 2 branches covered.">			for (Path file : stream) {</span>
+<span class="fc" id="L78">				files.add(file);</span>
+<span class="fc" id="L79">			}</span>
+		}
+<span class="fc" id="L81">		files.sort(null);</span>
+<span class="fc" id="L82">		return files;</span>
+	}
+
+	/** Load snapshot for specified date range 
+	 * @param semesterFolder containing the snapshots and date files
+	 * @return array list of snapshots 
+	 * @throws IOException if the folder is blank or missing files
+	*/
+
+	public List&lt;List&lt;Section&gt;&gt; readSemester(Path semesterFolder) throws IOException {
+<span class="fc" id="L92">		List&lt;List&lt;Section&gt;&gt; snapshots = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L93">		List&lt;Path&gt; files = locateEnrollmentSnapshots(semesterFolder);</span>
+<span class="fc" id="L94">		List&lt;LocalDate&gt; dates = readDates(semesterFolder);</span>
+<span class="fc" id="L95">		LocalDate startDate = dates.get(0);</span>
+<span class="fc" id="L96">		LocalDate endDate = dates.get(1);</span>
+<span class="fc" id="L97">		boolean foundAfterEndDate = false;</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">		for (Path file : files) {</span>
+<span class="fc" id="L99">			String fileName = file.getFileName().toString();</span>
+<span class="fc" id="L100">			String dateString = fileName.replace(&quot;.csv&quot;, &quot;&quot;);</span>
+<span class="fc" id="L101">			LocalDate snapshotDate = LocalDate.parse(dateString);</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">			if (snapshotDate.isBefore(startDate)) {</span>
+<span class="fc" id="L103">				continue;</span>
+			}
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if (snapshotDate.isAfter(endDate)) {</span>
+
+<span class="nc bnc" id="L107" title="All 2 branches missed.">				if (foundAfterEndDate) {</span>
+<span class="nc" id="L108">					continue;</span>
+				}
+<span class="nc" id="L110">				foundAfterEndDate = true;</span>
+			}
+<span class="nc" id="L112">			snapshots.add(readEnrollmentSnapshot(file));</span>
+<span class="nc" id="L113">		}</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">		if (snapshots.size() &lt; 2) {</span>
+<span class="fc" id="L115">			throw new IOException(&quot;Insufficient snapshots in &quot; + semesterFolder.getFileName());</span>
+		}
+<span class="nc" id="L117">		return snapshots;</span>
+	}
+	
+}
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
