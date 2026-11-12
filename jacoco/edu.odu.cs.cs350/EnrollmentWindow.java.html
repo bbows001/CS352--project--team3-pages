@@ -100,7 +100,7 @@ public class EnrollmentWindow {
 <span class="fc bfc" id="L100" title="All 4 branches covered.">        if (startDate ==null || endDate == null){</span>
 <span class="fc" id="L101">            throw new IllegalArgumentException(&quot;Invalid start or end date.&quot;);</span>
         }
-<span class="pc bpc" id="L103" title="1 of 6 branches missed.">        if (currentDate == null || currentDate.isBefore(startDate) || currentDate.isAfter(endDate)){</span>
+<span class="fc bfc" id="L103" title="All 6 branches covered.">        if (currentDate == null || currentDate.isBefore(startDate) || currentDate.isAfter(endDate)){</span>
 <span class="fc" id="L104">            throw new IllegalArgumentException(&quot;Current date is not within the enrollment window.&quot;);</span>
         }
 <span class="fc" id="L106">        double totalDays = ChronoUnit.DAYS.between(startDate, endDate);</span>
