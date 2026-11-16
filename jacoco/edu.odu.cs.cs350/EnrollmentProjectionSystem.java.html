@@ -20,12 +20,12 @@ import java.util.List;
      */
     public static void main(String[] args) throws IOException {
 
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (args.length == 0) {</span>
-<span class="nc" id="L24">            System.out.println(&quot;Please provide a semester folder.&quot;);</span>
-<span class="nc" id="L25">            return;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (args.length == 0) {</span>
+<span class="fc" id="L24">            System.out.println(&quot;Please provide a semester folder.&quot;);</span>
+<span class="fc" id="L25">            return;</span>
         }
-<span class="nc" id="L27">        Path semesterFolder = Path.of(args[0]);</span>
-<span class="nc" id="L28">        ReadSemesterEnrollmentData reader = new ReadSemesterEnrollmentData();</span>
+<span class="fc" id="L27">        Path semesterFolder = Path.of(args[0]);</span>
+<span class="fc" id="L28">        ReadSemesterEnrollmentData reader = new ReadSemesterEnrollmentData();</span>
 <span class="nc" id="L29">        List&lt;List&lt;Section&gt;&gt; snapshots = reader.readSemester(semesterFolder);</span>
 <span class="nc" id="L30">        System.out.println(&quot;Snapshots loaded: &quot; + snapshots.size());</span>
 <span class="nc" id="L31">        List&lt;LocalDate&gt; dates = reader.readDates(semesterFolder);</span>

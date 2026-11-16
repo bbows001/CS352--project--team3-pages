@@ -123,7 +123,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Read/validate the semester date from data text file</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readEnrollmentSnapshot(java.nio.file.Path)" class="member-name-link">readEnrollmentSnapshot</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;csvTestFile)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readEnrollmentSnapshot(java.nio.file.Path)" class="member-name-link">readEnrollmentSnapshot</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;enrollmentSnapshotFile)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Read a CSV enrollment snapshot and return a list of section objects</div>
 </div>
@@ -187,12 +187,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="readEnrollmentSnapshot(java.nio.file.Path)">
 <h3>readEnrollmentSnapshot</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;</span>&nbsp;<span class="element-name">readEnrollmentSnapshot</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;csvTestFile)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;</span>&nbsp;<span class="element-name">readEnrollmentSnapshot</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;enrollmentSnapshotFile)</span>
                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Read a CSV enrollment snapshot and return a list of section objects</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>csvTestFile</code> - path to the enrollment snapshot CSV file</dd>
+<dd><code>enrollmentSnapshotFile</code> - path to the enrollment snapshot CSV file</dd>
 <dt>Returns:</dt>
 <dd>list of section objects</dd>
 <dt>Throws:</dt>

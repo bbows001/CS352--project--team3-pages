@@ -39,17 +39,17 @@ import org.apache.commons.csv.CSVRecord;
 	}
 
 	/** Read a CSV enrollment snapshot and return a list of section objects
-	 * @param csvTestFile path to the enrollment snapshot CSV file
+	 * @param enrollmentSnapshotFile path to the enrollment snapshot CSV file
 	 * @return list of section objects
 	 * @throws IOException if the file has bad data or missing data
 	 */
-	public List&lt;Section&gt; readEnrollmentSnapshot(Path csvTestFile) throws IOException {
+	public List&lt;Section&gt; readEnrollmentSnapshot(Path enrollmentSnapshotFile) throws IOException {
 <span class="fc" id="L47">		List&lt;Section&gt; sections = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L48">		try (CSVParser parser = CSVParser.parse(csvTestFile, StandardCharsets.UTF_8,</span>
+<span class="fc" id="L48">		try (CSVParser parser = CSVParser.parse(enrollmentSnapshotFile, StandardCharsets.UTF_8,</span>
 <span class="fc" id="L49">				CSVFormat.DEFAULT.withFirstRecordAsHeader().withAllowMissingColumnNames())) {</span>
 <span class="fc bfc" id="L50" title="All 2 branches covered.">			for (CSVRecord row : parser) {</span>
 
-<span class="fc" id="L52">				String crn = row.get(&quot;CRN&quot;);</span>
+<span class="fc" id="L52">				String courseReferenceNumber = row.get(&quot;CRN&quot;);</span>
 <span class="fc" id="L53">				String subject = row.get(&quot;SUBJ&quot;);</span>
 <span class="fc" id="L54">				String courseNumber = row.get(&quot;CRSE&quot;);</span>
 <span class="fc" id="L55">				String campus = row.get(&quot;CAMPUS&quot;);</span>
@@ -58,7 +58,7 @@ import org.apache.commons.csv.CSVRecord;
 <span class="fc" id="L58">				int enrollment = Integer.parseInt(row.get(&quot;ENR&quot;));</span>
 <span class="fc" id="L59">				String crossList = (row.get(&quot;XLST GROUP&quot;));</span>
 <span class="fc" id="L60">				Section section = new Section(</span>
-						subject + courseNumber, crn, subject, campus, capacity, enrollment, crossList);
+						subject + courseNumber, courseReferenceNumber, subject, campus, capacity, enrollment, crossList);
 <span class="fc" id="L62">				sections.add(section);</span>
 <span class="fc" id="L63">			}</span>
 		}
