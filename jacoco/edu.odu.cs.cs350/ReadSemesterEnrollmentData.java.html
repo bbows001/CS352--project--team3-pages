@@ -56,12 +56,13 @@ import org.apache.commons.csv.CSVRecord;
 
 <span class="fc" id="L57">				int capacity = Integer.parseInt(row.get(&quot;XLST CAP&quot;));</span>
 <span class="fc" id="L58">				int enrollment = Integer.parseInt(row.get(&quot;ENR&quot;));</span>
-<span class="fc" id="L59">				Section section = new Section(</span>
-						subject + courseNumber, crn, subject, campus, capacity, enrollment, 0);
-<span class="fc" id="L61">				sections.add(section);</span>
-<span class="fc" id="L62">			}</span>
+<span class="fc" id="L59">				String crossList = (row.get(&quot;XLST GROUP&quot;));</span>
+<span class="fc" id="L60">				Section section = new Section(</span>
+						subject + courseNumber, crn, subject, campus, capacity, enrollment, crossList);
+<span class="fc" id="L62">				sections.add(section);</span>
+<span class="fc" id="L63">			}</span>
 		}
-<span class="fc" id="L64">		return sections;</span>
+<span class="fc" id="L65">		return sections;</span>
 	}
 
 	/** Find/sort CSV snapshot files in a semester folder
@@ -71,15 +72,15 @@ import org.apache.commons.csv.CSVRecord;
 	 * */
 
 	public List&lt;Path&gt; locateEnrollmentSnapshots(Path semesterFolder) throws IOException {
-<span class="fc" id="L74">		List&lt;Path&gt; files = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L75">		try (DirectoryStream&lt;Path&gt; stream = Files.newDirectoryStream(semesterFolder, &quot;*.csv&quot;)) {</span>
+<span class="fc" id="L75">		List&lt;Path&gt; files = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L76">		try (DirectoryStream&lt;Path&gt; stream = Files.newDirectoryStream(semesterFolder, &quot;*.csv&quot;)) {</span>
 
-<span class="fc bfc" id="L77" title="All 2 branches covered.">			for (Path file : stream) {</span>
-<span class="fc" id="L78">				files.add(file);</span>
-<span class="fc" id="L79">			}</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">			for (Path file : stream) {</span>
+<span class="fc" id="L79">				files.add(file);</span>
+<span class="fc" id="L80">			}</span>
 		}
-<span class="fc" id="L81">		files.sort(null);</span>
-<span class="fc" id="L82">		return files;</span>
+<span class="fc" id="L82">		files.sort(null);</span>
+<span class="fc" id="L83">		return files;</span>
 	}
 
 	/** Load snapshot for specified date range 
@@ -89,32 +90,32 @@ import org.apache.commons.csv.CSVRecord;
 	*/
 
 	public List&lt;List&lt;Section&gt;&gt; readSemester(Path semesterFolder) throws IOException {
-<span class="fc" id="L92">		List&lt;List&lt;Section&gt;&gt; snapshots = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L93">		List&lt;Path&gt; files = locateEnrollmentSnapshots(semesterFolder);</span>
-<span class="fc" id="L94">		List&lt;LocalDate&gt; dates = readDates(semesterFolder);</span>
-<span class="fc" id="L95">		LocalDate startDate = dates.get(0);</span>
-<span class="fc" id="L96">		LocalDate endDate = dates.get(1);</span>
-<span class="fc" id="L97">		boolean foundAfterEndDate = false;</span>
-<span class="fc bfc" id="L98" title="All 2 branches covered.">		for (Path file : files) {</span>
-<span class="fc" id="L99">			String fileName = file.getFileName().toString();</span>
-<span class="fc" id="L100">			String dateString = fileName.replace(&quot;.csv&quot;, &quot;&quot;);</span>
-<span class="fc" id="L101">			LocalDate snapshotDate = LocalDate.parse(dateString);</span>
-<span class="pc bpc" id="L102" title="1 of 2 branches missed.">			if (snapshotDate.isBefore(startDate)) {</span>
-<span class="fc" id="L103">				continue;</span>
+<span class="fc" id="L93">		List&lt;List&lt;Section&gt;&gt; snapshots = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L94">		List&lt;Path&gt; files = locateEnrollmentSnapshots(semesterFolder);</span>
+<span class="fc" id="L95">		List&lt;LocalDate&gt; dates = readDates(semesterFolder);</span>
+<span class="fc" id="L96">		LocalDate startDate = dates.get(0);</span>
+<span class="fc" id="L97">		LocalDate endDate = dates.get(1);</span>
+<span class="fc" id="L98">		boolean foundAfterEndDate = false;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">		for (Path file : files) {</span>
+<span class="fc" id="L100">			String fileName = file.getFileName().toString();</span>
+<span class="fc" id="L101">			String dateString = fileName.replace(&quot;.csv&quot;, &quot;&quot;);</span>
+<span class="fc" id="L102">			LocalDate snapshotDate = LocalDate.parse(dateString);</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">			if (snapshotDate.isBefore(startDate)) {</span>
+<span class="fc" id="L104">				continue;</span>
 			}
-<span class="nc bnc" id="L105" title="All 2 branches missed.">			if (snapshotDate.isAfter(endDate)) {</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">			if (snapshotDate.isAfter(endDate)) {</span>
 
-<span class="nc bnc" id="L107" title="All 2 branches missed.">				if (foundAfterEndDate) {</span>
-<span class="nc" id="L108">					continue;</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">				if (foundAfterEndDate) {</span>
+<span class="nc" id="L109">					continue;</span>
 				}
-<span class="nc" id="L110">				foundAfterEndDate = true;</span>
+<span class="nc" id="L111">				foundAfterEndDate = true;</span>
 			}
-<span class="nc" id="L112">			snapshots.add(readEnrollmentSnapshot(file));</span>
-<span class="nc" id="L113">		}</span>
-<span class="pc bpc" id="L114" title="1 of 2 branches missed.">		if (snapshots.size() &lt; 2) {</span>
-<span class="fc" id="L115">			throw new IOException(&quot;Insufficient snapshots in &quot; + semesterFolder.getFileName());</span>
+<span class="nc" id="L113">			snapshots.add(readEnrollmentSnapshot(file));</span>
+<span class="nc" id="L114">		}</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		if (snapshots.size() &lt; 2) {</span>
+<span class="fc" id="L116">			throw new IOException(&quot;Insufficient snapshots in &quot; + semesterFolder.getFileName());</span>
 		}
-<span class="nc" id="L117">		return snapshots;</span>
+<span class="nc" id="L118">		return snapshots;</span>
 	}
 	
 }

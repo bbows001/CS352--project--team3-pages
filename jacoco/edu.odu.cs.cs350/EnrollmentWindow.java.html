@@ -26,10 +26,11 @@ public class EnrollmentWindow {
      * @param endDate   the end date of the enrollment window
      */
 <span class="fc" id="L28">    public EnrollmentWindow(LocalDate startDate, LocalDate endDate) {</span>
-<span class="fc" id="L29">        this.startDate = startDate;</span>
-<span class="fc" id="L30">        this.endDate = endDate;</span>
-<span class="fc" id="L31">        validateDates(); // Validate the dates upon creation</span>
-<span class="fc" id="L32">    }</span>
+<span class="fc" id="L29">        validateDates(startDate, endDate); // Validate the dates upon creation</span>
+        
+<span class="fc" id="L31">        this.startDate = startDate;</span>
+<span class="fc" id="L32">        this.endDate = endDate;</span>
+<span class="fc" id="L33">    }</span>
 
     /**
      * Sets the start date of the enrollment window.
@@ -37,8 +38,11 @@ public class EnrollmentWindow {
      * @param startDate the start date to set
      */
     public void setStartDate(LocalDate startDate) {
-<span class="fc" id="L40">        this.startDate = startDate;</span>
-<span class="fc" id="L41">    }</span>
+        // Validate the start date then set it
+<span class="fc" id="L42">        validateDates(startDate, this.endDate);</span>
+        // Set the start date
+<span class="fc" id="L44">        this.startDate = startDate;</span>
+<span class="fc" id="L45">    }</span>
 
     /**
      * Gets the start date of the enrollment window.
@@ -46,7 +50,7 @@ public class EnrollmentWindow {
      * @return the start date
      */
     public LocalDate getStartDate() {
-<span class="fc" id="L49">        return startDate;</span>
+<span class="fc" id="L53">        return startDate;</span>
     }
 
     /**
@@ -55,8 +59,11 @@ public class EnrollmentWindow {
      * @param endDate the end date to set
      */
     public void setEndDate(LocalDate endDate) {
-<span class="fc" id="L58">        this.endDate = endDate;</span>
-<span class="fc" id="L59">    }  </span>
+        // Validate the end date then set it
+<span class="fc" id="L63">        validateDates(this.startDate, endDate);</span>
+        // Set the end date
+<span class="fc" id="L65">        this.endDate = endDate;</span>
+<span class="fc" id="L66">    }  </span>
 
     /**
      * Gets the end date of the enrollment window.
@@ -64,7 +71,7 @@ public class EnrollmentWindow {
      * @return the end date
      */
     public LocalDate getEndDate() {
-<span class="fc" id="L67">        return endDate;</span>
+<span class="fc" id="L74">        return endDate;</span>
     }
 
     /**
@@ -73,39 +80,52 @@ public class EnrollmentWindow {
      * @return the duration in days
      */
     public int getDuration() {
-<span class="fc bfc" id="L76" title="All 4 branches covered.">        if (startDate != null &amp;&amp; endDate != null) {</span>
-<span class="fc" id="L77">            return (int) java.time.temporal.ChronoUnit.DAYS.between(startDate, endDate);</span>
+<span class="fc bfc" id="L83" title="All 4 branches covered.">        if (startDate != null &amp;&amp; endDate != null) {</span>
+<span class="fc" id="L84">            return (int) ChronoUnit.DAYS.between(startDate, endDate);</span>
         }
-<span class="fc" id="L79">        return 0;</span>
+<span class="fc" id="L86">        return 0;</span>
     }
 
     /**
-     * Throws an IllegalArgumentException if the end date is before the start date.
+     * Validates the proposed enrollment window dates.
      * 
+     * @param startDate the proposed start date
+     * @param endDate the proposed end date
      * @throws IllegalArgumentException if the end date is before the start date
      */
-    public void validateDates() {
-<span class="fc bfc" id="L88" title="All 6 branches covered.">        if (startDate != null &amp;&amp; endDate != null &amp;&amp; endDate.isBefore(startDate)) {</span>
-<span class="fc" id="L89">            throw new IllegalArgumentException(&quot;End date cannot be before start date.&quot;);</span>
+    private void validateDates(LocalDate startDate, LocalDate endDate) {
+<span class="fc bfc" id="L97" title="All 6 branches covered.">        if (startDate != null &amp;&amp; endDate != null &amp;&amp; endDate.isBefore(startDate)) {</span>
+<span class="fc" id="L98">            throw new IllegalArgumentException(&quot;End date cannot be before start date.&quot;);</span>
         }  
-<span class="fc" id="L91">    }</span>
+<span class="fc" id="L100">    }</span>
+
     /**Calculates the elapsed percentage of the enrollment window
-     * @param currentDate and the start/end dates of the enrollment window
-     * @return the percentage elapsed of the enrollment period
-     * @throws IllegalArgumentException if the dates are invalid
+     * as of the specified date.
+     * 
+     * Returns 0.0 before the start date and
+     * 100.0 after the end date.
+     * @param currentDate the date to evaluate
+     * @return the percentage between 0.0 and 100.0
+     * @throws IllegalArgumentException if the dates are invalid 
+     * or zero duration.
      * 
      */
     public double getElapsedEnrollmentPercent(LocalDate currentDate) {
-<span class="fc bfc" id="L99" title="All 4 branches covered.">        if (startDate == null || endDate == null) {</span>
-<span class="fc" id="L100">            throw new IllegalArgumentException(&quot;Invalid start or end date.&quot;);</span>
+<span class="fc bfc" id="L114" title="All 6 branches covered.">        if (startDate == null || endDate == null || currentDate == null) {</span>
+<span class="fc" id="L115">            throw new IllegalArgumentException(&quot;Enrollment dates cannot be null.&quot;);</span>
         }
-<span class="fc bfc" id="L102" title="All 6 branches covered.">        if (currentDate == null || currentDate.isBefore(startDate) || currentDate.isAfter(endDate)) {</span>
-<span class="fc" id="L103">            throw new IllegalArgumentException(&quot;Current date is not within the enrollment window.&quot;);</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        if (getDuration() == 0) {</span>
+<span class="fc" id="L118">            throw new IllegalArgumentException(&quot;Enrollment window must have a positive duration.&quot;);</span>
         }
-<span class="fc" id="L105">        double totalDays = ChronoUnit.DAYS.between(startDate, endDate);</span>
-<span class="fc" id="L106">        double elapsedDays = ChronoUnit.DAYS.between(startDate, currentDate);</span>
-<span class="fc" id="L107">        double elapsedPercent = (elapsedDays / totalDays) * 100;</span>
-<span class="fc" id="L108">        return elapsedPercent;</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">        if (currentDate.isBefore(startDate)) {</span>
+<span class="fc" id="L121">            return 0.0; // Before shall display 0.0</span>
+        }
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        if (currentDate.isAfter(endDate)) {</span>
+<span class="fc" id="L124">            return 100.0; // Beyond shall display 100.0</span>
+        }
+<span class="fc" id="L126">        long elapsedDays = ChronoUnit.DAYS.between(startDate, currentDate);</span>
+        
+<span class="fc" id="L128">        return (elapsedDays / (double) getDuration()) * 100;</span>
     }
 }
 

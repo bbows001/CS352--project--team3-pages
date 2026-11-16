@@ -11,14 +11,14 @@ public class Section {
 	private String campus;
 	private int capacity;
 	private int numCurrentlyEnrolled;
-	private int crossList;
+	private String crossList;
 
 	/**
 	 * Default constructor for the Section class.
 	 * Initializes courseName, CRN, and Subject to empty strings.
 	 */
 	public Section() {
-<span class="fc" id="L21">		this(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, 0);</span>
+<span class="fc" id="L21">		this(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, &quot;&quot;);</span>
 <span class="fc" id="L22">	}</span>
 
 	/**
@@ -29,7 +29,7 @@ public class Section {
 	 * @param courseName the name of the course
 	 */
 	public Section(String courseName) {
-<span class="fc" id="L32">		this(courseName, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, 0);</span>
+<span class="fc" id="L32">		this(courseName, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, &quot;&quot;);</span>
 <span class="fc" id="L33">	}</span>
 
 	/**
@@ -44,7 +44,7 @@ public class Section {
 	 * @param numCurrentlyEnrolled the number of students currently enrolled in the section
 	 * @param crossList the cross-list section #
 	 */
-<span class="fc" id="L47">	public Section(String courseName, String CRN, String subject, String campus, int capacity, int numCurrentlyEnrolled, int crossList) {</span>
+<span class="fc" id="L47">	public Section(String courseName, String CRN, String subject, String campus, int capacity, int numCurrentlyEnrolled, String crossList) {</span>
 <span class="fc" id="L48">		this.courseName = courseName;</span>
 <span class="fc" id="L49">		this.CRN = CRN;</span>
 <span class="fc" id="L50">		this.subject = subject;</span>
@@ -155,7 +155,7 @@ public class Section {
 	 * Sets the cross-list section number.
 	 * @param crossList the cross-list section number
 	 */
-	public void setCrossList(int crossList) {
+	public void setCrossList(String crossList) {
 <span class="fc" id="L159">		this.crossList = crossList;</span>
 <span class="fc" id="L160">	}</span>
 
@@ -163,7 +163,7 @@ public class Section {
 	 * Gets the cross-list section number.
 	 * @return the cross-list section number
 	 */
-	public int getCrossList() {
+	public String getCrossList() {
 <span class="fc" id="L167">		return crossList;</span>
 	}
 
