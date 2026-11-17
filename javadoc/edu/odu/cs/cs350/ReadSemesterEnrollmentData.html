@@ -66,6 +66,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#readEnrollmentSnapshot(java.nio.file.Path)" tabindex="0">readEnrollmentSnapshot(Path)</a></li>
 <li><a href="#locateEnrollmentSnapshots(java.nio.file.Path)" tabindex="0">locateEnrollmentSnapshots(Path)</a></li>
 <li><a href="#readSemester(java.nio.file.Path)" tabindex="0">readSemester(Path)</a></li>
+<li><a href="#readEnrollmentWindow(java.nio.file.Path)" tabindex="0">readEnrollmentWindow(Path)</a></li>
 </ol>
 </li>
 </ol>
@@ -127,9 +128,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Read a CSV enrollment snapshot and return a list of section objects</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readSemester(java.nio.file.Path)" class="member-name-link">readSemester</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readEnrollmentWindow(java.nio.file.Path)" class="member-name-link">readEnrollmentWindow</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Reads the enrollment window dates from a semester directory.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readSemester(java.nio.file.Path)" class="member-name-link">readSemester</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Load snapshot for specified date range</div>
 </div>
 </div>
@@ -233,6 +239,24 @@ loadScripts(document, 'script');</script>
 <dd>array list of snapshots</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the folder is blank or missing files</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readEnrollmentWindow(java.nio.file.Path)">
+<h3>readEnrollmentWindow</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a></span>&nbsp;<span class="element-name">readEnrollmentWindow</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder)</span>
+                                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Reads the enrollment window dates from a semester directory.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>semesterFolder</code> - the semester directory containing dates.txt</dd>
+<dt>Returns:</dt>
+<dd>an EnrollmentWindow containing the start and end dates</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the dates file cannot be read</dd>
 </dl>
 </div>
 </section>

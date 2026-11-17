@@ -26,17 +26,17 @@ import java.util.List;
         }
 <span class="fc" id="L27">        Path semesterFolder = Path.of(args[0]);</span>
 <span class="fc" id="L28">        ReadSemesterEnrollmentData reader = new ReadSemesterEnrollmentData();</span>
-<span class="nc" id="L29">        List&lt;List&lt;Section&gt;&gt; snapshots = reader.readSemester(semesterFolder);</span>
-<span class="nc" id="L30">        System.out.println(&quot;Snapshots loaded: &quot; + snapshots.size());</span>
-<span class="nc" id="L31">        List&lt;LocalDate&gt; dates = reader.readDates(semesterFolder);</span>
+<span class="fc" id="L29">        List&lt;List&lt;Section&gt;&gt; snapshots = reader.readSemester(semesterFolder);</span>
+<span class="fc" id="L30">        System.out.println(&quot;Snapshots loaded: &quot; + snapshots.size());</span>
+<span class="fc" id="L31">        List&lt;LocalDate&gt; dates = reader.readDates(semesterFolder);</span>
 
-<span class="nc" id="L33">        EnrollmentWindow window = new EnrollmentWindow();</span>
-<span class="nc" id="L34">        window.setStartDate(dates.get(0));</span>
-<span class="nc" id="L35">        window.setEndDate(dates.get(1));</span>
-<span class="nc" id="L36">        OutputSummaryReport report = new OutputSummaryReport();</span>
-<span class="nc" id="L37">        LocalDate snapshotDate = LocalDate.of(2026, 5, 19); // replace with actual date later</span>
-<span class="nc" id="L38">        report.displayEnrollmentProgress(window, snapshotDate);</span>
-<span class="nc" id="L39">    }</span>
+<span class="fc" id="L33">        EnrollmentWindow window = new EnrollmentWindow();</span>
+<span class="fc" id="L34">        window.setStartDate(dates.get(0));</span>
+<span class="fc" id="L35">        window.setEndDate(dates.get(1));</span>
+<span class="fc" id="L36">        OutputSummaryReport report = new OutputSummaryReport();</span>
+<span class="fc" id="L37">        LocalDate snapshotDate = LocalDate.of(2026, 5, 19); // replace with actual date later</span>
+<span class="fc" id="L38">        report.displayEnrollmentProgress(window, snapshotDate);</span>
+<span class="fc" id="L39">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
