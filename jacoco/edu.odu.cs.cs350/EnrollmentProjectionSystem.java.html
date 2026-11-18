@@ -16,27 +16,27 @@ import java.util.List;
      * Starts the Enrollment Projection System and reads and validates the
      * enrollment data
      *
-     * @param args from the command line: the semester folder, optionally
+     * @param semesterDataLocation from the command line: the semester folder, optionally
      *             followed by an enrollment cutoff date (YYYY-MM-DD)
      * @throws IOException if there is no semester folder or an error reading the
      *                     folder/files
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] semesterDataLocation) throws IOException {
         // Check if user provides a semester folder
         // If not, stop the program and display message
 
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (args.length == 0) {</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (semesterDataLocation.length == 0) {</span>
 <span class="fc" id="L29">            System.out.println(&quot;Please provide a semester folder.&quot;);</span>
 <span class="fc" id="L30">            return;</span>
         }
         // Get folder location given by the user
-<span class="fc" id="L33">        Path semesterFolder = Path.of(args[0]);</span>
+<span class="fc" id="L33">        Path semesterFolder = Path.of(semesterDataLocation[0]);</span>
 
         // Optional enrollment cutoff date given after the folder
         // Snapshots dated after this date will be ignored
 <span class="fc" id="L37">        LocalDate cutoffDate = null;</span>
-<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (args.length &gt; 1) {</span>
-<span class="fc" id="L39">            cutoffDate = LocalDate.parse(args[1]);</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (semesterDataLocation.length &gt; 1) {</span>
+<span class="fc" id="L39">            cutoffDate = LocalDate.parse(semesterDataLocation[1]);</span>
         }
 
         // Create a reader object to access the semester files
@@ -68,7 +68,7 @@ import java.util.List;
         // Temp placeholder date to use as snapshot, update later
 <span class="fc" id="L69">        LocalDate snapshotDate = LocalDate.of(2026, 5, 19);</span>
 
-        // Display how far alond the enrollment period is based on snapshot
+        // Display how far along the enrollment period is based on snapshot
         // date and enrollment window
 <span class="fc" id="L73">        report.displayEnrollmentProgress(window, snapshotDate);</span>
 <span class="fc" id="L74">    }</span>
