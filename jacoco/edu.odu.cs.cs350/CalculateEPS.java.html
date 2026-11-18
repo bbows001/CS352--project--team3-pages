@@ -6,11 +6,6 @@
  */
 <span class="fc" id="L7">	public class CalculateEPS {</span>
 		// TODO Auto-generated method stub
-		
-		
-		public void CalculateEPS() {
-
-<span class="nc" id="L13">		}</span>
 		/**
 		 * Calculates the change in enrollment between two snapshots.
 		 *
@@ -20,16 +15,16 @@
 		 * @throws IllegalArgumentException if enrollment is negative
 		 */
 		public int calculateEnrollmentChanges( Offering previousOffering, Offering currentOffering) {
-<span class="fc" id="L23">			int previousEnrollment = previousOffering.getTotalEnrollment();</span>
-<span class="fc" id="L24">		    int currentEnrollment = currentOffering.getTotalEnrollment();</span>
+<span class="fc" id="L18">			int previousEnrollment = previousOffering.getTotalEnrollment();</span>
+<span class="fc" id="L19">		    int currentEnrollment = currentOffering.getTotalEnrollment();</span>
 		    
 		    //If the total Enrollment of the previous Offering or the current Offering is negative
-<span class="fc bfc" id="L27" title="All 4 branches covered.">			if (previousEnrollment &lt; 0 || currentEnrollment &lt; 0) {</span>
-<span class="fc" id="L28">			        throw new IllegalArgumentException( &quot;Enrollment in one or more Offering is negative.&quot;);</span>
+<span class="fc bfc" id="L22" title="All 4 branches covered.">			if (previousEnrollment &lt; 0 || currentEnrollment &lt; 0) {</span>
+<span class="fc" id="L23">			        throw new IllegalArgumentException( &quot;Enrollment in one or more Offering is negative.&quot;);</span>
 			    }
 			    
 			    //returns the delta (-) if it lowered (+) if it grew
-<span class="fc" id="L32">			    return currentEnrollment - previousEnrollment;</span>
+<span class="fc" id="L27">			    return currentEnrollment - previousEnrollment;</span>
 			}
 		
 		/**
@@ -40,7 +35,7 @@
 		 * @return true if enrollment has increased, false if it decreased
 		 */
 		public boolean hasEnrollmentIncreased( Offering previousOffering, Offering currentOffering) {
-<span class="fc bfc" id="L43" title="All 2 branches covered.">				return calculateEnrollmentChanges(previousOffering,currentOffering) &gt; 0;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">				return calculateEnrollmentChanges(previousOffering,currentOffering) &gt; 0;</span>
 		}
 		
 		/**
@@ -51,11 +46,11 @@
 		 * @return true if enrollment has decreased, false if it increased
 		 */
 		public boolean hasEnrollmentDecreased( Offering previousOffering, Offering currentOffering) {
-<span class="fc bfc" id="L54" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) &lt; 0;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) &lt; 0;</span>
 		}
 		
 		public boolean isEnrollmentSame( Offering previousOffering, Offering currentOffering) {
-<span class="fc bfc" id="L58" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) == 0;</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) == 0;</span>
 		}
 	}
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

@@ -62,7 +62,6 @@ loadScripts(document, 'script');</script>
 </li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
-<li><a href="#CalculateEPS()" tabindex="0">CalculateEPS()</a></li>
 <li><a href="#calculateEnrollmentChanges(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" tabindex="0">calculateEnrollmentChanges(Offering, Offering)</a></li>
 <li><a href="#hasEnrollmentIncreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" tabindex="0">hasEnrollmentIncreased(Offering, Offering)</a></li>
 <li><a href="#hasEnrollmentDecreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" tabindex="0">hasEnrollmentDecreased(Offering, Offering)</a></li>
@@ -119,25 +118,22 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Calculates the change in enrollment between two snapshots.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#CalculateEPS()" class="member-name-link">CalculateEPS</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentDecreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentDecreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
- <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Calculates if the enrollment change is  negative between two offerings.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentIncreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentIncreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentDecreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentDecreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
  <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Calculates if the enrollment change is positive between two offerings.</div>
+<div class="block">Calculates if the enrollment change is  negative between two offerings.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnrollmentSame(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">isEnrollmentSame</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentIncreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentIncreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
  <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Calculates if the enrollment change is positive between two offerings.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnrollmentSame(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">isEnrollmentSame</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
+ <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -171,14 +167,6 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="CalculateEPS()">
-<h3>CalculateEPS</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">CalculateEPS</span>()</div>
-</div>
-</section>
-</li>
 <li>
 <section class="detail" id="calculateEnrollmentChanges(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)">
 <h3>calculateEnrollmentChanges</h3>
