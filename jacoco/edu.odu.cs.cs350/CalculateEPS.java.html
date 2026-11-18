@@ -24,8 +24,8 @@
 <span class="fc" id="L24">		    int currentEnrollment = currentOffering.getTotalEnrollment();</span>
 		    
 		    //If the total Enrollment of the previous Offering or the current Offering is negative
-<span class="pc bpc" id="L27" title="2 of 4 branches missed.">			if (previousEnrollment &lt; 0 || currentEnrollment &lt; 0) {</span>
-<span class="nc" id="L28">			        throw new IllegalArgumentException( &quot;Enrollment in one or more Offering is negative.&quot;);</span>
+<span class="fc bfc" id="L27" title="All 4 branches covered.">			if (previousEnrollment &lt; 0 || currentEnrollment &lt; 0) {</span>
+<span class="fc" id="L28">			        throw new IllegalArgumentException( &quot;Enrollment in one or more Offering is negative.&quot;);</span>
 			    }
 			    
 			    //returns the delta (-) if it lowered (+) if it grew

@@ -16,7 +16,8 @@ import java.util.List;
      * Starts the Enrollment Projection System and reads and validates the
      * enrollment data
      *
-     * @param args from the command line
+     * @param args from the command line: the semester folder, optionally
+     *             followed by an enrollment cutoff date (YYYY-MM-DD)
      * @throws IOException if there is no semester folder or an error reading the
      *                     folder/files
      */
@@ -24,46 +25,53 @@ import java.util.List;
         // Check if user provides a semester folder
         // If not, stop the program and display message
 
-<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (args.length == 0) {</span>
-<span class="fc" id="L28">            System.out.println(&quot;Please provide a semester folder.&quot;);</span>
-<span class="fc" id="L29">            return;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (args.length == 0) {</span>
+<span class="fc" id="L29">            System.out.println(&quot;Please provide a semester folder.&quot;);</span>
+<span class="fc" id="L30">            return;</span>
         }
         // Get folder location given by the user
-<span class="fc" id="L32">        Path semesterFolder = Path.of(args[0]);</span>
+<span class="fc" id="L33">        Path semesterFolder = Path.of(args[0]);</span>
+
+        // Optional enrollment cutoff date given after the folder
+        // Snapshots dated after this date will be ignored
+<span class="fc" id="L37">        LocalDate cutoffDate = null;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (args.length &gt; 1) {</span>
+<span class="fc" id="L39">            cutoffDate = LocalDate.parse(args[1]);</span>
+        }
 
         // Create a reader object to access the semester files
-<span class="fc" id="L35">        ReadSemesterEnrollmentData reader = new ReadSemesterEnrollmentData();</span>
+<span class="fc" id="L43">        ReadSemesterEnrollmentData reader = new ReadSemesterEnrollmentData();</span>
 
         // Read enrollment snapshot files from the folder
         // Each one has a list of course section and enrollment info for specific date
         //Section = One course section and its enrollment information
         //List&lt;Section&gt; = All the sections recorded in one snapshot
         // List&lt;List&lt;Section&gt;&gt; = A collection of all those snapshots
-<span class="nc" id="L42">        List&lt;List&lt;Section&gt;&gt; snapshots = reader.readSemester(semesterFolder);</span>
+<span class="fc" id="L50">        List&lt;List&lt;Section&gt;&gt; snapshots = reader.readSemester(semesterFolder, cutoffDate);</span>
 
         // Display number of enrollment snapshots loaded
-<span class="nc" id="L45">        System.out.println(&quot;Snapshots loaded: &quot; + snapshots.size());</span>
+<span class="fc" id="L53">        System.out.println(&quot;Snapshots loaded: &quot; + snapshots.size());</span>
 
         // Read the semester start and end date from the date file
-<span class="nc" id="L48">        List&lt;LocalDate&gt; dates = reader.readDates(semesterFolder);</span>
+<span class="fc" id="L56">        List&lt;LocalDate&gt; dates = reader.readDates(semesterFolder);</span>
 
         // Create an enrollment window object to track enrollment period start/end date
-<span class="nc" id="L51">        EnrollmentWindow window = new EnrollmentWindow();</span>
+<span class="fc" id="L59">        EnrollmentWindow window = new EnrollmentWindow();</span>
 
         // Set beginning and end of enrollment dates by retrieving dates from list
-<span class="nc" id="L54">        window.setStartDate(dates.get(0));</span>
-<span class="nc" id="L55">        window.setEndDate(dates.get(1));</span>
+<span class="fc" id="L62">        window.setStartDate(dates.get(0));</span>
+<span class="fc" id="L63">        window.setEndDate(dates.get(1));</span>
 
         // Create object report to display info about enrollment progress
-<span class="nc" id="L58">        OutputSummaryReport report = new OutputSummaryReport();</span>
+<span class="fc" id="L66">        OutputSummaryReport report = new OutputSummaryReport();</span>
 
         // Temp placeholder date to use as snapshot, update later
-<span class="nc" id="L61">        LocalDate snapshotDate = LocalDate.of(2026, 5, 19);</span>
+<span class="fc" id="L69">        LocalDate snapshotDate = LocalDate.of(2026, 5, 19);</span>
 
         // Display how far alond the enrollment period is based on snapshot
         // date and enrollment window
-<span class="nc" id="L65">        report.displayEnrollmentProgress(window, snapshotDate);</span>
-<span class="nc" id="L66">    }</span>
+<span class="fc" id="L73">        report.displayEnrollmentProgress(window, snapshotDate);</span>
+<span class="fc" id="L74">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
