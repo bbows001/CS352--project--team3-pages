@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">21</div>
+<div class="counter">20</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.020s</div>
+<div class="counter">0.018s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">95%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,34 +61,9 @@
 <div class="tab-container">
 <ul class="tabLinks">
 <li>
-<a href="#">Failed tests</a>
-</li>
-<li>
 <a href="#">Tests</a>
 </li>
 </ul>
-<div class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="testIsLabWithNull()"></a>
-<h3 class="failures">testIsLabWithNull()</h3>
-<span class="code">
-<pre id="test-message-testIsLabWithNull()">org.opentest4j.AssertionFailedError: expected: &lt;null&gt; but was: &lt;false&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
-	at app//org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
-	at app//org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:30)
-	at app//org.junit.jupiter.api.Assertions.assertNull(Assertions.java:279)
-	at app//edu.odu.cs.cs350.TestSection.testIsLabWithNull(TestSection.java:224)
-	at java.base@25.0.2/java.lang.reflect.Method.invoke(Method.java:565)
-	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at java.base@25.0.2/java.util.ArrayList.forEach(ArrayList.java:1604)
-</pre>
-<button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="test-message-testIsLabWithNull()">Copy</button>
-</span>
-</div>
-</div>
 <div class="tab">
 <h2>Tests</h2>
 <table>
@@ -101,53 +76,48 @@
 </thead>
 <tr>
 <td class="success">testCourseNameConstructor()</td>
-<td class="success">0.001s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testCrossList()</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testDefaultConstructor()</td>
-<td class="success">0.002s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testFullConstructor()</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testHasLinkWithBlankIdentifier()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testHasLinkWithNullIdentifier()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testHasLinkWithPopulatedIdentifier()</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testHasLinkWithWhitespaceIdentifier()</td>
 <td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testIsLab()</td>
+<td class="success">testHasLinkWithBlankIdentifier()</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="failures">testIsLabWithNull()</td>
-<td class="failures">0.003s</td>
-<td class="failures">failed</td>
+<td class="success">testHasLinkWithNullIdentifier()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHasLinkWithPopulatedIdentifier()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testHasLinkWithWhitespaceIdentifier()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testIsLab()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testIsLecture()</td>
@@ -161,22 +131,22 @@
 </tr>
 <tr>
 <td class="success">testSetCRN()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testSetCampus()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testSetCapacity()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testSetCourseName()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -186,12 +156,12 @@
 </tr>
 <tr>
 <td class="success">testSetLink()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testSetOverallCapacity()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -214,7 +184,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 9.2.1</a> at Nov 18, 2026, 11:14:41 AM</p>
+<a href="https://www.gradle.org">Gradle 9.2.1</a> at Nov 18, 2026, 11:28:05 AM</p>
 </div>
 </div>
 </body>
