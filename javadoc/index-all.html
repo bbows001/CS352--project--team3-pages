@@ -49,7 +49,7 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1>Index</h1>
 </div>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
 <dt><a href="edu/odu/cs/cs350/Offering.html#addSection(edu.odu.cs.cs350.Section)" class="member-name-link">addSection(Section)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Offering.html" title="class in edu.odu.cs.cs350">Offering</a></dt>
@@ -59,6 +59,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:C">C</h2>
 <dl class="index">
+<dt><a href="edu/odu/cs/cs350/CalculateEPS.html#calculateEnrollmentChanges(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">calculateEnrollmentChanges(Offering, Offering)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/CalculateEPS.html" title="class in edu.odu.cs.cs350">CalculateEPS</a></dt>
+<dd>
+<div class="block">Calculates the change in enrollment between two snapshots.</div>
+</dd>
 <dt><a href="edu/odu/cs/cs350/CalculateEPS.html" class="type-name-link" title="class in edu.odu.cs.cs350">CalculateEPS</a> - Class in <a href="edu/odu/cs/cs350/package-summary.html">edu.odu.cs.cs350</a></dt>
 <dd>
 <div class="block">Calculate the EPS for a semester based on enrollment data</div>
@@ -143,6 +147,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Gets the instructor for the offering.</div>
 </dd>
+<dt><a href="edu/odu/cs/cs350/Section.html#getLink()" class="member-name-link">getLink()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
+<dd>
+<div class="block">Gets the LINK identifier for this section.</div>
+</dd>
 <dt><a href="edu/odu/cs/cs350/Section.html#getOverallCapacity()" class="member-name-link">getOverallCapacity()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
 <dd>
 <div class="block">Gets the overall capacity of the offering associated with this section.</div>
@@ -169,11 +177,37 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="edu/odu/cs/cs350/Offering.html#getTotalCapacity()" class="member-name-link">getTotalCapacity()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Offering.html" title="class in edu.odu.cs.cs350">Offering</a></dt>
 <dd>
-<div class="block">Gets the total capacity of all sections from the offering.</div>
+<div class="block">Calculates the total capacity of an offering without 
+double-counting cross-listed sections.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/Offering.html#getTotalEnrollment()" class="member-name-link">getTotalEnrollment()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Offering.html" title="class in edu.odu.cs.cs350">Offering</a></dt>
 <dd>
 <div class="block">Gets the total enrollment of all sections from the offering.</div>
+</dd>
+</dl>
+<h2 class="title" id="I:H">H</h2>
+<dl class="index">
+<dt><a href="edu/odu/cs/cs350/Section.html#hasLink()" class="member-name-link">hasLink()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
+<dd>
+<div class="block">Determines whether this section has a LINK identifier.</div>
+</dd>
+</dl>
+<h2 class="title" id="I:I">I</h2>
+<dl class="index">
+<dt><a href="edu/odu/cs/cs350/Section.html#isLab()" class="member-name-link">isLab()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
+<dd>
+<div class="block">Determines whether this section is a lab based 
+on its LINK identifier.</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/Section.html#isLecture()" class="member-name-link">isLecture()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
+<dd>
+<div class="block">Determines whether this section is a lecture based 
+on its LINK identifier.</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/Section.html#isRecitation()" class="member-name-link">isRecitation()</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
+<dd>
+<div class="block">Determines whether this section is a recitation based 
+on its LINK identifier.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:L">L</h2>
@@ -309,6 +343,10 @@ enrollment data</div>
 <dd>
 <div class="block">Sets the instructor for the offering.</div>
 </dd>
+<dt><a href="edu/odu/cs/cs350/Section.html#setLink(java.lang.String)" class="member-name-link">setLink(String)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
+<dd>
+<div class="block">Sets the LINK identifier for this section.</div>
+</dd>
 <dt><a href="edu/odu/cs/cs350/Section.html#setOverallCapacity(int)" class="member-name-link">setOverallCapacity(int)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/Section.html" title="class in edu.odu.cs.cs350">Section</a></dt>
 <dd>
 <div class="block">Sets the overall capacity of the offering associated with this section.</div>
@@ -330,7 +368,7 @@ enrollment data</div>
 <div class="block">Sets the term for the offering and validates its inputs.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
 </div>
 </body>
 </html>

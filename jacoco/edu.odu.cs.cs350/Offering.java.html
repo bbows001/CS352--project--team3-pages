@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Offering.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350</a> &gt; <span class="el_source">Offering.java</span></div><h1>Offering.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents an offering of a course.
@@ -17,11 +19,11 @@ public class Offering {
 	 * Initializes instructor to an empty string.
 	 * Default term is Fall (10)
 	 */
-<span class="fc" id="L20">	public Offering() {</span>
-<span class="fc" id="L21">		this.instructor = &quot;&quot;;</span>
-<span class="fc" id="L22">		this.term = 10; //Default term is Fall (10). Other options are Spring (20) or Summer (30).</span>
-<span class="fc" id="L23">		this.sections = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L24">	}</span>
+<span class="fc" id="L22">	public Offering() {</span>
+<span class="fc" id="L23">		this.instructor = &quot;&quot;;</span>
+<span class="fc" id="L24">		this.term = 10; //Default term is Fall (10). Other options are Spring (20) or Summer (30).</span>
+<span class="fc" id="L25">		this.sections = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">	}</span>
 
 	/**
 	 * Constructor for the Offering class.
@@ -29,11 +31,11 @@ public class Offering {
 	 * 
 	 * @param instructor the name of the instructor
 	 */
-<span class="fc" id="L32">	public Offering(String instructor) {</span>
-<span class="fc" id="L33">		this.instructor = instructor;</span>
-<span class="fc" id="L34">		this.term = 10;</span>
-<span class="fc" id="L35">		this.sections = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L36">	}</span>
+<span class="fc" id="L34">	public Offering(String instructor) {</span>
+<span class="fc" id="L35">		this.instructor = instructor;</span>
+<span class="fc" id="L36">		this.term = 10;</span>
+<span class="fc" id="L37">		this.sections = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L38">	}</span>
 	
 	/**
 	 * Constructor for the Offering class.
@@ -42,11 +44,11 @@ public class Offering {
 	 * @param instructor the name of the instructor
 	 * @param term the name of the term of the offering
 	 */
-<span class="fc" id="L45">	public Offering(String instructor, int term) {</span>
-<span class="fc" id="L46">		this.instructor = instructor;</span>
-<span class="fc" id="L47">		setTerm(term);</span>
-<span class="fc" id="L48">		this.sections = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L49">	}</span>
+<span class="fc" id="L47">	public Offering(String instructor, int term) {</span>
+<span class="fc" id="L48">		this.instructor = instructor;</span>
+<span class="fc" id="L49">		setTerm(term);</span>
+<span class="fc" id="L50">		this.sections = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L51">	}</span>
 	
 	/**
 	 * Constructor for the Offering class.
@@ -56,11 +58,11 @@ public class Offering {
 	 * @param term, the name of the term of the offering
 	 * @param sections, the list of sections in the offering
 	 */
-<span class="fc" id="L59">	public Offering(String instructor, int term, List&lt;Section&gt; sections) {</span>
-<span class="fc" id="L60">		this.instructor = instructor;</span>
-<span class="fc" id="L61">		this.term = term;</span>
-<span class="fc" id="L62">		this.sections = new ArrayList&lt;&gt;(sections);</span>
-<span class="fc" id="L63">	}</span>
+<span class="fc" id="L61">	public Offering(String instructor, int term, List&lt;Section&gt; sections) {</span>
+<span class="fc" id="L62">		this.instructor = instructor;</span>
+<span class="fc" id="L63">		this.term = term;</span>
+<span class="fc" id="L64">		this.sections = new ArrayList&lt;&gt;(sections);</span>
+<span class="fc" id="L65">	}</span>
 
 	// Setters and Getters
 	/**
@@ -69,8 +71,8 @@ public class Offering {
 	 * @param instructor the instructor to set
 	 */
 	public void setInstructor(String instructor) {
-<span class="fc" id="L72">		this.instructor = instructor;</span>
-<span class="fc" id="L73">	}</span>
+<span class="fc" id="L74">		this.instructor = instructor;</span>
+<span class="fc" id="L75">	}</span>
 	
 	/**
 	 * Gets the instructor for the offering.
@@ -78,7 +80,7 @@ public class Offering {
 	 * @return the instructor
 	 */
 	public String getInstructor() {
-<span class="fc" id="L81">		return instructor;</span>
+<span class="fc" id="L83">		return instructor;</span>
 	}
 	
 	/**
@@ -88,13 +90,13 @@ public class Offering {
 	 */
 	public void setTerm(int term) {
 		// TODO Auto-generated method stub
-<span class="fc bfc" id="L91" title="All 6 branches covered.">		if (term != 10 &amp;&amp; term !=20 &amp;&amp; term != 30) {</span>
-<span class="fc" id="L92">			throw new IllegalArgumentException(&quot;Invalid term. Term must be either Fall (10), Spring (20) or Summer (30).&quot;);</span>
+<span class="fc bfc" id="L93" title="All 6 branches covered.">		if (term != 10 &amp;&amp; term !=20 &amp;&amp; term != 30) {</span>
+<span class="fc" id="L94">			throw new IllegalArgumentException(&quot;Invalid term. Term must be either Fall (10), Spring (20) or Summer (30).&quot;);</span>
 		}
 		else {
-<span class="fc" id="L95">			this.term = term;</span>
+<span class="fc" id="L97">			this.term = term;</span>
 		}
-<span class="fc" id="L97">	}</span>
+<span class="fc" id="L99">	}</span>
 	
 	/**
 	 * Gets the term for the offering.
@@ -102,7 +104,7 @@ public class Offering {
 	 * @return the term
 	 */
 	public int getTerm() {
-<span class="fc" id="L105">	    return term;</span>
+<span class="fc" id="L107">	    return term;</span>
 	}
 	
 	/**
@@ -112,8 +114,8 @@ public class Offering {
 	 */
 	public void addSection(Section section) {
 		// TODO Auto-generated method stub
-<span class="fc" id="L115">		sections.add(section);</span>
-<span class="fc" id="L116">	}</span>
+<span class="fc" id="L117">		sections.add(section);</span>
+<span class="fc" id="L118">	}</span>
 	
 	/**
 	 * Gets the full list of sections from the offering.
@@ -121,7 +123,7 @@ public class Offering {
 	 * @return all the sections
 	 */
 	public List&lt;Section&gt; getAllSections(){
-<span class="fc" id="L124">		return sections;</span>
+<span class="fc" id="L126">		return sections;</span>
 	}
 	
 	/**
@@ -131,8 +133,8 @@ public class Offering {
 	 */
 	public void removeSection(Section section) {
 		// TODO Auto-generated method stub
-<span class="fc" id="L134">		sections.remove(section);</span>
-<span class="fc" id="L135">	}</span>
+<span class="fc" id="L136">		sections.remove(section);</span>
+<span class="fc" id="L137">	}</span>
 
 	/**
 	 * Gets the total enrollment of all sections from the offering.
@@ -141,25 +143,45 @@ public class Offering {
 	 */
 	public int getTotalEnrollment() {
 		// TODO Auto-generated method stub
-<span class="fc" id="L144">		int totalEnrolled = 0;  </span>
-<span class="fc bfc" id="L145" title="All 2 branches covered.">		for (Section s : sections) {</span>
-<span class="fc" id="L146">		       totalEnrolled += s.getCurrentEnrollment();</span>
-<span class="fc" id="L147">		    }</span>
-<span class="fc" id="L148">		return totalEnrolled;</span>
+<span class="fc" id="L146">		int totalEnrolled = 0;  </span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">		for (Section s : sections) {</span>
+<span class="fc" id="L148">		       totalEnrolled += s.getCurrentEnrollment();</span>
+<span class="fc" id="L149">		    }</span>
+<span class="fc" id="L150">		return totalEnrolled;</span>
 	}
 
 	/**
-	 * Gets the total capacity of all sections from the offering.
-	 * 
-	 * @return the total capacity of all sections in an offering
+	 * Calculates the total capacity of an offering without 
+	 * double-counting cross-listed sections.
+	 *
+	 * @return the total capacity of the offering
 	 */
 	public int getTotalCapacity() {
-		// TODO Auto-generated method stub
-<span class="fc" id="L158">		int totalCapacity = 0;  </span>
-<span class="fc bfc" id="L159" title="All 2 branches covered.">		for (Section s : sections) {</span>
-<span class="fc" id="L160">		       totalCapacity += s.getCapacity();</span>
-<span class="fc" id="L161">		    }</span>
-<span class="fc" id="L162">		return totalCapacity;</span>
+<span class="fc" id="L160">		int totalCapacity = 0;</span>
+
+<span class="fc" id="L162">		Set&lt;String&gt; countedGroups = new HashSet&lt;&gt;();</span>
+
+<span class="fc bfc" id="L164" title="All 2 branches covered.">		for (Section section : sections) {</span>
+<span class="fc" id="L165">			String crossList = section.getCrossList();</span>
+			// Check for if we have a crosslist
+<span class="pc bpc" id="L167" title="1 of 4 branches missed.">			if (crossList != null &amp;&amp; !crossList.isBlank()) {</span>
+				// Count the shared capacity only once per group.
+<span class="fc bfc" id="L169" title="All 2 branches covered.">				if (countedGroups.add(crossList)) {</span>
+<span class="fc" id="L170">    				int overallCapacity = section.getOverallCapacity();</span>
+
+<span class="fc bfc" id="L172" title="All 2 branches covered.">    				if (overallCapacity &gt; 0) {</span>
+<span class="fc" id="L173">        				totalCapacity += overallCapacity;</span>
+    				} else {
+<span class="fc" id="L175">        				totalCapacity += section.getCapacity();</span>
+    				}
+<span class="fc" id="L177">				}</span>
+			} else {
+				// Independent sections use their individual capacity.
+<span class="fc" id="L180">				totalCapacity += section.getCapacity();</span>
+			}
+<span class="fc" id="L182">		}</span>
+
+<span class="fc" id="L184">		return totalCapacity;</span>
 	}
 
 	/**
@@ -170,18 +192,18 @@ public class Offering {
 	 */
 	public Section getSectionsByCRN(String CRN) {
 		// TODO Auto-generated method stub
-<span class="fc bfc" id="L173" title="All 2 branches covered.">		if (sections.isEmpty()) {</span>
-<span class="fc" id="L174">			System.out.println(&quot;This offering has no sections.&quot;);</span>
-<span class="fc" id="L175">			return null;</span>
+<span class="fc bfc" id="L195" title="All 2 branches covered.">		if (sections.isEmpty()) {</span>
+<span class="fc" id="L196">			System.out.println(&quot;This offering has no sections.&quot;);</span>
+<span class="fc" id="L197">			return null;</span>
 		}else {
-<span class="fc bfc" id="L177" title="All 2 branches covered.">			for(Section s: sections) {</span>
-<span class="fc bfc" id="L178" title="All 2 branches covered.">				if (s.getCRN().equals(CRN)) {</span>
-<span class="fc" id="L179">					return s;</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">			for(Section s: sections) {</span>
+<span class="fc bfc" id="L200" title="All 2 branches covered.">				if (s.getCRN().equals(CRN)) {</span>
+<span class="fc" id="L201">					return s;</span>
 				}
-<span class="fc" id="L181">			}</span>
+<span class="fc" id="L203">			}</span>
 		}
-<span class="fc" id="L183">		System.out.println(&quot;The section with CRN: '&quot; +CRN+ &quot;' could not be found.&quot;);</span>
-<span class="fc" id="L184">		return null;</span>
+<span class="fc" id="L205">		System.out.println(&quot;The section with CRN: '&quot; +CRN+ &quot;' could not be found.&quot;);</span>
+<span class="fc" id="L206">		return null;</span>
 	}
 
 	/**
@@ -191,13 +213,13 @@ public class Offering {
 	 */
 	public int sectionsAtCapacity() {
 		// TODO Auto-generated method stub
-<span class="fc" id="L194">		List&lt;Section&gt; maxedSections = new ArrayList&lt;&gt;(); </span>
-<span class="fc bfc" id="L195" title="All 2 branches covered.">		for(Section s:sections) {</span>
-<span class="fc bfc" id="L196" title="All 2 branches covered.">			if(s.getCurrentEnrollment() &gt;= s.getCapacity()) {</span>
-<span class="fc" id="L197">				maxedSections.add(s);</span>
+<span class="fc" id="L216">		List&lt;Section&gt; maxedSections = new ArrayList&lt;&gt;(); </span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">		for(Section s:sections) {</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">			if(s.getCurrentEnrollment() &gt;= s.getCapacity()) {</span>
+<span class="fc" id="L219">				maxedSections.add(s);</span>
 			}
-<span class="fc" id="L199">		}</span>
-<span class="fc" id="L200">		return maxedSections.size();</span>
+<span class="fc" id="L221">		}</span>
+<span class="fc" id="L222">		return maxedSections.size();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

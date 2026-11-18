@@ -4,8 +4,29 @@
  * 
  * Calculate the EPS for a semester based on enrollment data 
  */
-<span class="nc" id="L7">	public class CalculateEPS {</span>
+<span class="fc" id="L7">	public class CalculateEPS {</span>
 		// TODO Auto-generated method stub
+		Offering previousOffering, currentOffering;
 		
+<span class="nc" id="L11">		int previousEnrollment = previousOffering.getTotalEnrollment();</span>
+<span class="nc" id="L12">	    int currentEnrollment = currentOffering.getTotalEnrollment();</span>
+		
+		/**
+		 * Calculates the change in enrollment between two snapshots.
+		 *
+		 * @param previousOffering enrollment in the earlier snapshot
+		 * @param currentOffering enrollment in the later snapshot
+		 * @return the change in student enrollment
+		 * @throws IllegalArgumentException if enrollment is negative
+		 */
+		public int calculateEnrollmentChanges( Offering previousOffering, Offering currentOffering) {
+			    //If the total Enrollment of the previous Offering or the current Offering is negative
+<span class="nc bnc" id="L24" title="All 4 branches missed.">			    if (previousEnrollment &lt; 0 || currentEnrollment &lt; 0) {</span>
+<span class="nc" id="L25">			        throw new IllegalArgumentException( &quot;Enrollment in one or more Offering is negative.&quot;);</span>
+			    }
+			    
+			    //returns the delta (-) if it lowered (=) if it grew
+<span class="nc" id="L29">			    return currentEnrollment - previousEnrollment;</span>
+			}
 	}
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
