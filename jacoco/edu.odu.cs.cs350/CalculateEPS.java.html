@@ -23,7 +23,7 @@
 <span class="nc" id="L23">			        throw new IllegalArgumentException( &quot;Enrollment in one or more Offering is negative.&quot;);</span>
 			    }
 			    
-			    //returns the delta (-) if it lowered (=) if it grew
+			    //returns the delta (-) if it lowered (+) if it grew
 <span class="fc" id="L27">			    return currentEnrollment - previousEnrollment;</span>
 			}
 		
@@ -35,7 +35,7 @@
 		 * @return true if enrollment has increased, false if it decreased
 		 */
 		public boolean hasEnrollmentIncreased( Offering previousOffering, Offering currentOffering) {
-<span class="pc bpc" id="L38" title="1 of 2 branches missed.">				return calculateEnrollmentChanges(previousOffering,currentOffering) &gt; 0;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">				return calculateEnrollmentChanges(previousOffering,currentOffering) &gt; 0;</span>
 		}
 		
 		/**
@@ -46,7 +46,11 @@
 		 * @return true if enrollment has decreased, false if it increased
 		 */
 		public boolean hasEnrollmentDecreased( Offering previousOffering, Offering currentOffering) {
-<span class="pc bpc" id="L49" title="1 of 2 branches missed.">			return calculateEnrollmentChanges(previousOffering,currentOffering) &lt; 0;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) &lt; 0;</span>
+		}
+		
+		public boolean isEnrollmentSame( Offering previousOffering, Offering currentOffering) {
+<span class="fc bfc" id="L53" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) == 0;</span>
 		}
 	}
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
