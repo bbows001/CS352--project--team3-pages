@@ -63,6 +63,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
 <li><a href="#calculateEnrollmentChanges(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" tabindex="0">calculateEnrollmentChanges(Offering, Offering)</a></li>
+<li><a href="#hasEnrollmentIncreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" tabindex="0">hasEnrollmentIncreased(Offering, Offering)</a></li>
+<li><a href="#hasEnrollmentDecreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" tabindex="0">hasEnrollmentDecreased(Offering, Offering)</a></li>
 </ol>
 </li>
 </ol>
@@ -115,6 +117,18 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Calculates the change in enrollment between two snapshots.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentDecreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentDecreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
+ <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Calculates if the enrollment change is  negative between two offerings.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentIncreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentIncreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
+ <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Calculates if the enrollment change is positive between two offerings.</div>
+</div>
 </div>
 </div>
 </div>
@@ -163,6 +177,40 @@ loadScripts(document, 'script');</script>
 <dd>the change in student enrollment</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if enrollment is negative</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hasEnrollmentIncreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)">
+<h3>hasEnrollmentIncreased</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasEnrollmentIncreased</span><wbr><span class="parameters">(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
+ <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</span></div>
+<div class="block">Calculates if the enrollment change is positive between two offerings.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>previousOffering</code> - enrollment in the earlier snapshot</dd>
+<dd><code>currentOffering</code> - enrollment in the later snapshot</dd>
+<dt>Returns:</dt>
+<dd>true if enrollment has increased, false if it decreased</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hasEnrollmentDecreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)">
+<h3>hasEnrollmentDecreased</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasEnrollmentDecreased</span><wbr><span class="parameters">(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
+ <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</span></div>
+<div class="block">Calculates if the enrollment change is  negative between two offerings.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>previousOffering</code> - enrollment in the earlier snapshot</dd>
+<dd><code>currentOffering</code> - enrollment in the later snapshot</dd>
+<dt>Returns:</dt>
+<dd>true if enrollment has decreased, false if it increased</dd>
 </dl>
 </div>
 </section>
