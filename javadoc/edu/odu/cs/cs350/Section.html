@@ -74,8 +74,12 @@ loadScripts(document, 'script');</script>
 <li><a href="#getCampus()" tabindex="0">getCampus()</a></li>
 <li><a href="#setCapacity(int)" tabindex="0">setCapacity(int)</a></li>
 <li><a href="#getCapacity()" tabindex="0">getCapacity()</a></li>
-<li><a href="#setNumCurrentlyEnrolled(int)" tabindex="0">setNumCurrentlyEnrolled(int)</a></li>
-<li><a href="#getNumCurrentlyEnrolled()" tabindex="0">getNumCurrentlyEnrolled()</a></li>
+<li><a href="#setOverallCapacity(int)" tabindex="0">setOverallCapacity(int)</a></li>
+<li><a href="#getOverallCapacity()" tabindex="0">getOverallCapacity()</a></li>
+<li><a href="#setCurrentEnrollment(int)" tabindex="0">setCurrentEnrollment(int)</a></li>
+<li><a href="#getCurrentEnrollment()" tabindex="0">getCurrentEnrollment()</a></li>
+<li><a href="#setOverallEnrollment(int)" tabindex="0">setOverallEnrollment(int)</a></li>
+<li><a href="#getOverallEnrollment()" tabindex="0">getOverallEnrollment()</a></li>
 <li><a href="#setCrossList(java.lang.String)" tabindex="0">setCrossList(String)</a></li>
 <li><a href="#getCrossList()" tabindex="0">getCrossList()</a></li>
 </ol>
@@ -121,7 +125,7 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;campus,
  int&nbsp;capacity,
- int&nbsp;numCurrentlyEnrolled,
+ int&nbsp;currentEnrollment,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;crossList)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Constructor for the Section class.</div>
@@ -166,9 +170,19 @@ loadScripts(document, 'script');</script>
 <div class="block">Gets the cross-list section number.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNumCurrentlyEnrolled()" class="member-name-link">getNumCurrentlyEnrolled</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentEnrollment()" class="member-name-link">getCurrentEnrollment</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Gets the number of students currently enrolled in the section.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOverallCapacity()" class="member-name-link">getOverallCapacity</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the overall capacity of the offering associated with this section.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOverallEnrollment()" class="member-name-link">getOverallEnrollment</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the overall enrollment of the offering associated with this section.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSubject()" class="member-name-link">getSubject</a>()</code></div>
@@ -201,9 +215,19 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets the cross-list section number.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNumCurrentlyEnrolled(int)" class="member-name-link">setNumCurrentlyEnrolled</a><wbr>(int&nbsp;numCurrentlyEnrolled)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrentEnrollment(int)" class="member-name-link">setCurrentEnrollment</a><wbr>(int&nbsp;currentEnrollment)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the number of students currently enrolled in the section.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOverallCapacity(int)" class="member-name-link">setOverallCapacity</a><wbr>(int&nbsp;overallCapacity)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the overall capacity of the offering associated with this section.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOverallEnrollment(int)" class="member-name-link">setOverallEnrollment</a><wbr>(int&nbsp;overallEnrollment)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the overall enrollment of the offering associated with this section.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSubject(java.lang.String)" class="member-name-link">setSubject</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject)</code></div>
@@ -261,7 +285,7 @@ and Subject to empty strings.</div>
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;campus,
  int&nbsp;capacity,
- int&nbsp;numCurrentlyEnrolled,
+ int&nbsp;currentEnrollment,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;crossList)</span></div>
 <div class="block">Constructor for the Section class.
 Initializes courseName, CRN, and Subject to the provided values.</div>
@@ -272,7 +296,7 @@ Initializes courseName, CRN, and Subject to the provided values.</div>
 <dd><code>subject</code> - the subject of the section</dd>
 <dd><code>campus</code> - the campus of the section</dd>
 <dd><code>capacity</code> - the capacity of the section</dd>
-<dd><code>numCurrentlyEnrolled</code> - the number of students currently enrolled in the section</dd>
+<dd><code>currentEnrollment</code> - the number of students currently enrolled in the section</dd>
 <dd><code>crossList</code> - the cross-list section #</dd>
 </dl>
 </div>
@@ -417,27 +441,79 @@ Initializes courseName, CRN, and Subject to the provided values.</div>
 </section>
 </li>
 <li>
-<section class="detail" id="setNumCurrentlyEnrolled(int)">
-<h3>setNumCurrentlyEnrolled</h3>
+<section class="detail" id="setOverallCapacity(int)">
+<h3>setOverallCapacity</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setNumCurrentlyEnrolled</span><wbr><span class="parameters">(int&nbsp;numCurrentlyEnrolled)</span></div>
-<div class="block">Sets the number of students currently enrolled in the section.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOverallCapacity</span><wbr><span class="parameters">(int&nbsp;overallCapacity)</span></div>
+<div class="block">Sets the overall capacity of the offering associated with this section.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>numCurrentlyEnrolled</code> - the number of students currently enrolled</dd>
+<dd><code>overallCapacity</code> - the overall offering capacity</dd>
 </dl>
 </div>
 </section>
 </li>
 <li>
-<section class="detail" id="getNumCurrentlyEnrolled()">
-<h3>getNumCurrentlyEnrolled</h3>
+<section class="detail" id="getOverallCapacity()">
+<h3>getOverallCapacity</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getNumCurrentlyEnrolled</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getOverallCapacity</span>()</div>
+<div class="block">Gets the overall capacity of the offering associated with this section.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the overall offering capacity</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setCurrentEnrollment(int)">
+<h3>setCurrentEnrollment</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCurrentEnrollment</span><wbr><span class="parameters">(int&nbsp;currentEnrollment)</span></div>
+<div class="block">Sets the number of students currently enrolled in the section.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>currentEnrollment</code> - the number of students currently enrolled</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCurrentEnrollment()">
+<h3>getCurrentEnrollment</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getCurrentEnrollment</span>()</div>
 <div class="block">Gets the number of students currently enrolled in the section.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the number of students currently enrolled</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setOverallEnrollment(int)">
+<h3>setOverallEnrollment</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOverallEnrollment</span><wbr><span class="parameters">(int&nbsp;overallEnrollment)</span></div>
+<div class="block">Sets the overall enrollment of the offering associated with this section.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>overallEnrollment</code> - the overall offering enrollment</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getOverallEnrollment()">
+<h3>getOverallEnrollment</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getOverallEnrollment</span>()</div>
+<div class="block">Gets the overall enrollment of the offering associated with this section.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the overall offering enrollment</dd>
 </dl>
 </div>
 </section>

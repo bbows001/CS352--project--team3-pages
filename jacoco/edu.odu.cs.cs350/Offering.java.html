@@ -143,7 +143,7 @@ public class Offering {
 		// TODO Auto-generated method stub
 <span class="fc" id="L144">		int totalEnrolled = 0;  </span>
 <span class="fc bfc" id="L145" title="All 2 branches covered.">		for (Section s : sections) {</span>
-<span class="fc" id="L146">		       totalEnrolled += s.getNumCurrentlyEnrolled();</span>
+<span class="fc" id="L146">		       totalEnrolled += s.getCurrentEnrollment();</span>
 <span class="fc" id="L147">		    }</span>
 <span class="fc" id="L148">		return totalEnrolled;</span>
 	}
@@ -193,7 +193,7 @@ public class Offering {
 		// TODO Auto-generated method stub
 <span class="fc" id="L194">		List&lt;Section&gt; maxedSections = new ArrayList&lt;&gt;(); </span>
 <span class="fc bfc" id="L195" title="All 2 branches covered.">		for(Section s:sections) {</span>
-<span class="fc bfc" id="L196" title="All 2 branches covered.">			if(s.getNumCurrentlyEnrolled() &gt;= s.getCapacity()) {</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">			if(s.getCurrentEnrollment() &gt;= s.getCapacity()) {</span>
 <span class="fc" id="L197">				maxedSections.add(s);</span>
 			}
 <span class="fc" id="L199">		}</span>
