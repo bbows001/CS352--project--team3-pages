@@ -63,6 +63,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
 <li><a href="#displayEnrollmentProgress(edu.odu.cs.cs350.EnrollmentWindow,java.time.LocalDate)" tabindex="0">displayEnrollmentProgress(EnrollmentWindow, LocalDate)</a></li>
+<li><a href="#formatCourseRow(java.lang.String,int,int,int)" tabindex="0">formatCourseRow(String, int, int, int)</a></li>
 </ol>
 </li>
 </ol>
@@ -115,6 +116,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Displays the enrollment period elapsed</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#formatCourseRow(java.lang.String,int,int,int)" class="member-name-link">formatCourseRow</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;courseName,
+ int&nbsp;enrollment,
+ int&nbsp;projected,
+ int&nbsp;totalCapacity)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Builds one row of the summary report for a course.</div>
+</div>
 </div>
 </div>
 </div>
@@ -159,6 +168,28 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>enrollmentWindow</code> - </dd>
 <dd><code>snapshotDate</code> - </dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="formatCourseRow(java.lang.String,int,int,int)">
+<h3>formatCourseRow</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">formatCourseRow</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;courseName,
+ int&nbsp;enrollment,
+ int&nbsp;projected,
+ int&nbsp;totalCapacity)</span></div>
+<div class="block">Builds one row of the summary report for a course. The row starts with "*" 
+if the projected enrollment is more than the capacity, or a blank space otherwise.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>courseName</code> - , the name of the course</dd>
+<dd><code>enrollment</code> - , the course's current total enrollment</dd>
+<dd><code>projected</code> - , the course's projected enrollment</dd>
+<dd><code>totalCapacity</code> - , the course's total capacity</dd>
+<dt>Returns:</dt>
+<dd>the formatted report row</dd>
 </dl>
 </div>
 </section>

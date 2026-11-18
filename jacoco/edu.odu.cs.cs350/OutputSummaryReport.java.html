@@ -17,5 +17,23 @@ import java.time.LocalDate;
 <span class="fc" id="L17">		System.out.println(&quot;Enrollment Window Elapsed Percentage: &quot; + </span>
 <span class="fc" id="L18">		enrollmentWindow.getElapsedEnrollmentPercent(snapshotDate) + &quot;%&quot;);</span>
 <span class="fc" id="L19">	}</span>
+		
+		/**
+		 * Builds one row of the summary report for a course. The row starts with &quot;*&quot; 
+		 * if the projected enrollment is more than the capacity, or a blank space otherwise.
+		 *
+		 * @param courseName, the name of the course
+		 * @param enrollment, the course's current total enrollment
+		 * @param projected, the course's projected enrollment
+		 * @param totalCapacity, the course's total capacity
+		 * @return the formatted report row
+		 */
+		public String formatCourseRow(String courseName, int enrollment, int projected, int totalCapacity) {
+<span class="fc" id="L32">			String prefix = &quot; &quot;;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">			if (projected &gt; totalCapacity) {</span>
+<span class="fc" id="L34">				prefix = &quot;*&quot;;</span>
+			}
+<span class="fc" id="L36">			return prefix + courseName + &quot;\t&quot; + enrollment + &quot;\t&quot; + projected + &quot;\t&quot; + totalCapacity;</span>
+		}
 	}
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
