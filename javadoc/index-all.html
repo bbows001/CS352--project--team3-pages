@@ -83,7 +83,9 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/EnrollmentProjectionSystem.html" class="type-name-link" title="class in edu.odu.cs.cs350">EnrollmentProjectionSystem</a> - Class in <a href="edu/odu/cs/cs350/package-summary.html">edu.odu.cs.cs350</a></dt>
 <dd>
-<div class="block">Main class for Enrollment Projection System</div>
+<div class="block">Main class for Enrollment Projection System
+Program start, reads enrollment data from semester folder
+Determines enrollment period, displays enrollment progress</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/EnrollmentProjectionSystem.html#%3Cinit%3E()" class="member-name-link">EnrollmentProjectionSystem()</a> - Constructor for class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/EnrollmentProjectionSystem.html" title="class in edu.odu.cs.cs350">EnrollmentProjectionSystem</a></dt>
 <dd>&nbsp;</dd>
@@ -286,7 +288,12 @@ enrollment data</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html#readSemester(java.nio.file.Path)" class="member-name-link">readSemester(Path)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a></dt>
 <dd>
-<div class="block">Load snapshot for specified date range</div>
+<div class="block">Load snapshots for specified date range with no cutoff date</div>
+</dd>
+<dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html#readSemester(java.nio.file.Path,java.time.LocalDate)" class="member-name-link">readSemester(Path, LocalDate)</a> - Method in class edu.odu.cs.cs350.<a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a></dt>
+<dd>
+<div class="block">Load snapshots for specified date range, ignoring any snapshot
+dated after the optional cutoff date</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/ReadSemesterEnrollmentData.html" class="type-name-link" title="class in edu.odu.cs.cs350">ReadSemesterEnrollmentData</a> - Class in <a href="edu/odu/cs/cs350/package-summary.html">edu.odu.cs.cs350</a></dt>
 <dd>

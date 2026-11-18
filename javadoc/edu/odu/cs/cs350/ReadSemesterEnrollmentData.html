@@ -66,6 +66,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#readEnrollmentSnapshot(java.nio.file.Path)" tabindex="0">readEnrollmentSnapshot(Path)</a></li>
 <li><a href="#locateEnrollmentSnapshots(java.nio.file.Path)" tabindex="0">locateEnrollmentSnapshots(Path)</a></li>
 <li><a href="#readSemester(java.nio.file.Path)" tabindex="0">readSemester(Path)</a></li>
+<li><a href="#readSemester(java.nio.file.Path,java.time.LocalDate)" tabindex="0">readSemester(Path, LocalDate)</a></li>
 <li><a href="#readEnrollmentWindow(java.nio.file.Path)" tabindex="0">readEnrollmentWindow(Path)</a></li>
 </ol>
 </li>
@@ -136,7 +137,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readSemester(java.nio.file.Path)" class="member-name-link">readSemester</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Load snapshot for specified date range</div>
+<div class="block">Load snapshots for specified date range with no cutoff date</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readSemester(java.nio.file.Path,java.time.LocalDate)" class="member-name-link">readSemester</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a>&nbsp;cutoffDate)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Load snapshots for specified date range, ignoring any snapshot
+dated after the optional cutoff date</div>
 </div>
 </div>
 </div>
@@ -182,9 +190,11 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>semesterFolder</code> - Path to the semester folder</dd>
 <dt>Returns:</dt>
-<dd>List of LocalDate objects representing the semester start and end dates</dd>
+<dd>List of LocalDate objects representing the semester start and end
+        dates</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the dates.txt file is missing or has an invalid number of dates</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the dates.txt file is missing or has an invalid number
+                    of dates</dd>
 </dl>
 </div>
 </section>
@@ -231,10 +241,31 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;</span>&nbsp;<span class="element-name">readSemester</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder)</span>
                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Load snapshot for specified date range</div>
+<div class="block">Load snapshots for specified date range with no cutoff date</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>semesterFolder</code> - containing the snapshots and date files</dd>
+<dt>Returns:</dt>
+<dd>array list of snapshots</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the folder is blank or missing files</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readSemester(java.nio.file.Path,java.time.LocalDate)">
+<h3>readSemester</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;</span>&nbsp;<span class="element-name">readSemester</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;semesterFolder,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a>&nbsp;cutoffDate)</span>
+                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Load snapshots for specified date range, ignoring any snapshot
+dated after the optional cutoff date</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>semesterFolder</code> - containing the snapshots and date files</dd>
+<dd><code>cutoffDate</code> - last snapshot date to include, or null for no cutoff</dd>
 <dt>Returns:</dt>
 <dd>array list of snapshots</dd>
 <dt>Throws:</dt>
