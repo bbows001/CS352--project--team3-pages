@@ -13,42 +13,48 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/** Class to generate a detailed Excel report */
+/** Class to generate a detailed Excel report. */
 
-<span class="fc" id="L18">public class OutputDetailedReport {</span>
+public class OutputDetailedReport {
     /**
-     * Create Excel Workbook for renrollment history
-     * 
-     * @return Excel workbook
+     * Creates a detailed Excel report generator.
      */
-    public Workbook createWorkbook() {
+<span class="fc" id="L22">    public OutputDetailedReport() {</span>
+<span class="fc" id="L23">    }</span>
 
-<span class="fc" id="L26">        Workbook workbook = new XSSFWorkbook();</span>
-<span class="fc" id="L27">        Sheet sheet = workbook.createSheet(&quot;Current Semester History&quot;);</span>
-<span class="fc" id="L28">        Row header = sheet.createRow(0);</span>
-<span class="fc" id="L29">        header.createCell(0).setCellValue(&quot;Course&quot;);</span>
-<span class="fc" id="L30">        return workbook;</span>
+    /**
+     * Create Excel Workbook for enrollment history.
+     * 
+     * @return the Excel workbook
+     */
+
+    public Workbook createWorkbook() {
+<span class="fc" id="L32">        Workbook workbook = new XSSFWorkbook();</span>
+<span class="fc" id="L33">        Sheet sheet = workbook.createSheet(&quot;Current Semester History&quot;);</span>
+<span class="fc" id="L34">        Row header = sheet.createRow(0);</span>
+<span class="fc" id="L35">        header.createCell(0).setCellValue(&quot;Course&quot;);</span>
+<span class="fc" id="L36">        return workbook;</span>
 
     }
 
     /**
-     * Add snapshot dates as headers for the columns on the worksheet
+     * Add snapshot dates as headers for the columns on the worksheet.
      * 
      * @param workbook the Excel workbook
      * @param dates    the snapshot dates
      */
     public void addSnapshotHeaders(Workbook workbook, List&lt;LocalDate&gt; dates) {
-<span class="fc" id="L41">        Sheet sheet = workbook.getSheet(&quot;Current Semester History&quot;);</span>
-<span class="fc" id="L42">        Row header = sheet.getRow(0);</span>
-<span class="fc" id="L43">        int column = 1;</span>
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (LocalDate date : dates) {</span>
-<span class="fc" id="L45">            header.createCell(column).setCellValue(date.toString());</span>
-<span class="fc" id="L46">            column++;</span>
-<span class="fc" id="L47">        }</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L47">        Sheet sheet = workbook.getSheet(&quot;Current Semester History&quot;);</span>
+<span class="fc" id="L48">        Row header = sheet.getRow(0);</span>
+<span class="fc" id="L49">        int column = 1;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (LocalDate date : dates) {</span>
+<span class="fc" id="L51">            header.createCell(column).setCellValue(date.toString());</span>
+<span class="fc" id="L52">            column++;</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">    }</span>
 
     /**
-     * Add course and enrollment integers to excel report
+     * Add course and enrollment integers to excel report.
      * 
      * @param workbook    Excel workbook
      * @param courseName  the course Name
@@ -59,88 +65,90 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
     public void addCourseEnrollment(Workbook workbook, String courseName, int enrollment1,
             int enrollment2) {
 
-<span class="fc" id="L62">        Sheet sheet = workbook.getSheet(&quot;Current Semester History&quot;);</span>
-<span class="fc" id="L63">        int nextRow = sheet.getLastRowNum() + 1;</span>
-<span class="fc" id="L64">        Row row = sheet.createRow(nextRow);</span>
-<span class="fc" id="L65">        row.createCell(0).setCellValue(courseName);</span>
-<span class="fc" id="L66">        row.createCell(1).setCellValue(enrollment1);</span>
-<span class="fc" id="L67">        row.createCell(2).setCellValue(enrollment2);</span>
+<span class="fc" id="L68">        Sheet sheet = workbook.getSheet(&quot;Current Semester History&quot;);</span>
+<span class="fc" id="L69">        int nextRow = sheet.getLastRowNum() + 1;</span>
+<span class="fc" id="L70">        Row row = sheet.createRow(nextRow);</span>
+<span class="fc" id="L71">        row.createCell(0).setCellValue(courseName);</span>
+<span class="fc" id="L72">        row.createCell(1).setCellValue(enrollment1);</span>
+<span class="fc" id="L73">        row.createCell(2).setCellValue(enrollment2);</span>
 
-<span class="fc" id="L69">    }</span>
-    /** 
-     * Adds course and course enrollment history to Excel wksht
-     * @param workbook, the Excel workbook
-     * @param courseName, the name of the course
-     * @param enrollments, the enrollment totals for the snapshot
+<span class="fc" id="L75">    }</span>
+
+    /**
+     * Adds course and course enrollment history to Excel wksht.
+     * 
+     * @param workbook    the Excel workbook
+     * @param courseName  the name of the course
+     * @param enrollments the enrollment totals for the snapshot
      */
 
     public void addCourseEnrollment(Workbook workbook, String courseName, List&lt;Integer&gt; enrollments) {
 
-<span class="fc" id="L79">        Sheet sheet = workbook.getSheet(&quot;Current Semester History&quot;);</span>
-<span class="fc" id="L80">        int nextRow = sheet.getLastRowNum() + 1;</span>
-<span class="fc" id="L81">        Row row = sheet.createRow(nextRow);</span>
-<span class="fc" id="L82">        row.createCell(0).setCellValue(courseName);</span>
-<span class="fc" id="L83">        int column = 1;</span>
-<span class="fc bfc" id="L84" title="All 2 branches covered.">        for (int enrollment : enrollments) {</span>
-<span class="fc" id="L85">            row.createCell(column).setCellValue(enrollment);</span>
-<span class="fc" id="L86">            column++;</span>
-<span class="fc" id="L87">        }</span>
-<span class="fc" id="L88">    }</span>
+<span class="fc" id="L87">        Sheet sheet = workbook.getSheet(&quot;Current Semester History&quot;);</span>
+<span class="fc" id="L88">        int nextRow = sheet.getLastRowNum() + 1;</span>
+<span class="fc" id="L89">        Row row = sheet.createRow(nextRow);</span>
+<span class="fc" id="L90">        row.createCell(0).setCellValue(courseName);</span>
+<span class="fc" id="L91">        int column = 1;</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        for (int enrollment : enrollments) {</span>
+<span class="fc" id="L93">            row.createCell(column).setCellValue(enrollment);</span>
+<span class="fc" id="L94">            column++;</span>
+<span class="fc" id="L95">        }</span>
+<span class="fc" id="L96">    }</span>
 
     /**
-     * Save Excel workbook to a file
+     * Save Excel workbook to a file.
      * 
      * @param workbook the workbook to be saved
      * @param filePath the location of the Excel doc
      * @throws IOException if the file cant be written
      */
     public void saveWorkbook(Workbook workbook, Path filePath) throws IOException {
-<span class="fc" id="L98">        try (OutputStream output = Files.newOutputStream(filePath)) {</span>
-<span class="fc" id="L99">            workbook.write(output);</span>
+<span class="fc" id="L106">        try (OutputStream output = Files.newOutputStream(filePath)) {</span>
+<span class="fc" id="L107">            workbook.write(output);</span>
 
         }
-<span class="fc" id="L102">    }</span>
+<span class="fc" id="L110">    }</span>
 
     /**
-     * Adds enrollment history for all courses in all snapshots
+     * Adds enrollment history for all courses in all snapshots.
      * 
      * @param workbook  the Excel workbook
      * @param snapshots the enrollment snapshots
      */
     public void addSectionEnrollmentHistory(Workbook workbook, List&lt;List&lt;Section&gt;&gt; snapshots) {
-<span class="fc" id="L111">        List&lt;String&gt; previouslyAddedCourses = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L119">        List&lt;String&gt; previouslyAddedCourses = new ArrayList&lt;&gt;();</span>
 
         // Look through each snapshot for courses
-<span class="fc bfc" id="L114" title="All 2 branches covered.">        for (List&lt;Section&gt; snapshot : snapshots) {</span>
-<span class="fc bfc" id="L115" title="All 2 branches covered.">            for (Section section : snapshot) {</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        for (List&lt;Section&gt; snapshot : snapshots) {</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            for (Section section : snapshot) {</span>
 
-<span class="fc" id="L117">                String courseName = section.getCourseName();</span>
+<span class="fc" id="L125">                String courseName = section.getCourseName();</span>
 
                 // Skip courses already added to the report
-<span class="fc bfc" id="L120" title="All 2 branches covered.">                if (previouslyAddedCourses.contains(courseName)) {</span>
-<span class="fc" id="L121">                    continue;</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">                if (previouslyAddedCourses.contains(courseName)) {</span>
+<span class="fc" id="L129">                    continue;</span>
                 }
 
-<span class="fc" id="L124">                previouslyAddedCourses.add(courseName);</span>
+<span class="fc" id="L132">                previouslyAddedCourses.add(courseName);</span>
 
-<span class="fc" id="L126">                List&lt;Integer&gt; enrollments = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L134">                List&lt;Integer&gt; enrollments = new ArrayList&lt;&gt;();</span>
 
                 // Calc enrollment for this course at each date
-<span class="fc bfc" id="L129" title="All 2 branches covered.">                for (List&lt;Section&gt; currentSnapshot : snapshots) {</span>
-<span class="fc" id="L130">                    int enrollment = 0;</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">                for (List&lt;Section&gt; currentSnapshot : snapshots) {</span>
+<span class="fc" id="L138">                    int enrollment = 0;</span>
 
-<span class="fc bfc" id="L132" title="All 2 branches covered.">                    for (Section current : currentSnapshot) {</span>
-<span class="fc bfc" id="L133" title="All 2 branches covered.">                        if (current.getCourseName().equals(courseName)) {</span>
-<span class="fc" id="L134">                            enrollment += current.getCurrentEnrollment();</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">                    for (Section current : currentSnapshot) {</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">                        if (current.getCourseName().equals(courseName)) {</span>
+<span class="fc" id="L142">                            enrollment += current.getCurrentEnrollment();</span>
                         }
-<span class="fc" id="L136">                    }</span>
-<span class="fc" id="L137">                    enrollments.add(enrollment);</span>
-<span class="fc" id="L138">                }</span>
+<span class="fc" id="L144">                    }</span>
+<span class="fc" id="L145">                    enrollments.add(enrollment);</span>
+<span class="fc" id="L146">                }</span>
 
                 // Add the course and course enrollment history to Excel
-<span class="fc" id="L141">                addCourseEnrollment(workbook, courseName, enrollments);</span>
-<span class="fc" id="L142">            }</span>
-<span class="fc" id="L143">        }</span>
-<span class="fc" id="L144">    }</span>
+<span class="fc" id="L149">                addCourseEnrollment(workbook, courseName, enrollments);</span>
+<span class="fc" id="L150">            }</span>
+<span class="fc" id="L151">        }</span>
+<span class="fc" id="L152">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

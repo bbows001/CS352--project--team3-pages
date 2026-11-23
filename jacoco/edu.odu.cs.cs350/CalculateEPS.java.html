@@ -2,55 +2,71 @@
 
 /**
  * 
- * Calculate the EPS for a semester based on enrollment data 
+ * Calculate the EPS for a semester based on enrollment data
  */
-<span class="fc" id="L7">	public class CalculateEPS {</span>
-		// TODO Auto-generated method stub
-		/**
-		 * Calculates the change in enrollment between two snapshots.
-		 *
-		 * @param previousOffering enrollment in the earlier snapshot
-		 * @param currentOffering enrollment in the later snapshot
-		 * @return the change in student enrollment
-		 * @throws IllegalArgumentException if enrollment is negative
-		 */
-		public int calculateEnrollmentChanges( Offering previousOffering, Offering currentOffering) {
-<span class="fc" id="L18">			int previousEnrollment = previousOffering.getTotalEnrollment();</span>
-<span class="fc" id="L19">		    int currentEnrollment = currentOffering.getTotalEnrollment();</span>
-		    
-		    //If the total Enrollment of the previous Offering or the current Offering is negative
-<span class="fc bfc" id="L22" title="All 4 branches covered.">			if (previousEnrollment &lt; 0 || currentEnrollment &lt; 0) {</span>
-<span class="fc" id="L23">			        throw new IllegalArgumentException( &quot;Enrollment in one or more Offering is negative.&quot;);</span>
-			    }
-			    
-			    //returns the delta (-) if it lowered (+) if it grew
-<span class="fc" id="L27">			    return currentEnrollment - previousEnrollment;</span>
-			}
-		
-		/**
-		 * Calculates if the enrollment change is positive between two offerings.
-		 *
-		 * @param previousOffering enrollment in the earlier snapshot
-		 * @param currentOffering enrollment in the later snapshot
-		 * @return true if enrollment has increased, false if it decreased
-		 */
-		public boolean hasEnrollmentIncreased( Offering previousOffering, Offering currentOffering) {
-<span class="fc bfc" id="L38" title="All 2 branches covered.">				return calculateEnrollmentChanges(previousOffering,currentOffering) &gt; 0;</span>
+public class CalculateEPS {
+
+	/**
+	 * Creates an enrollment projection calc.
+	 * 
+	 */
+<span class="fc" id="L13">	public CalculateEPS() {</span>
+<span class="fc" id="L14">	}</span>
+
+	/**
+	 * Calculates the change in enrollment between two snapshots.
+	 *
+	 * @param previousOffering enrollment in the earlier snapshot
+	 * @param currentOffering  enrollment in the later snapshot
+	 * @return the change in student enrollment
+	 * @throws IllegalArgumentException if enrollment is negative
+	 */
+	public int calculateEnrollmentChanges(Offering previousOffering, Offering currentOffering) {
+<span class="fc" id="L25">		int previousEnrollment = previousOffering.getTotalEnrollment();</span>
+<span class="fc" id="L26">		int currentEnrollment = currentOffering.getTotalEnrollment();</span>
+
+		// If the total Enrollment of the previous Offering or the current Offering is
+		// negative
+<span class="fc bfc" id="L30" title="All 4 branches covered.">		if (previousEnrollment &lt; 0 || currentEnrollment &lt; 0) {</span>
+<span class="fc" id="L31">			throw new IllegalArgumentException(&quot;Enrollment in one or more Offering is negative.&quot;);</span>
 		}
-		
-		/**
-		 * Calculates if the enrollment change is  negative between two offerings.
-		 *
-		 * @param previousOffering enrollment in the earlier snapshot
-		 * @param currentOffering enrollment in the later snapshot
-		 * @return true if enrollment has decreased, false if it increased
-		 */
-		public boolean hasEnrollmentDecreased( Offering previousOffering, Offering currentOffering) {
-<span class="fc bfc" id="L49" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) &lt; 0;</span>
-		}
-		
-		public boolean isEnrollmentSame( Offering previousOffering, Offering currentOffering) {
-<span class="fc bfc" id="L53" title="All 2 branches covered.">			return calculateEnrollmentChanges(previousOffering,currentOffering) == 0;</span>
-		}
+
+		// returns the delta (-) if it lowered (+) if it grew
+<span class="fc" id="L35">		return currentEnrollment - previousEnrollment;</span>
 	}
+
+	/**
+	 * Calculates if the enrollment change is positive between two offerings.
+	 *
+	 * @param previousOffering enrollment in the earlier snapshot
+	 * @param currentOffering  enrollment in the later snapshot
+	 * @return true if enrollment has increased, false if it decreased
+	 */
+	public boolean hasEnrollmentIncreased(Offering previousOffering, Offering currentOffering) {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">		return calculateEnrollmentChanges(previousOffering, currentOffering) &gt; 0;</span>
+	}
+
+	/**
+	 * Calculates if the enrollment change is negative between two offerings.
+	 *
+	 * @param previousOffering enrollment in the earlier snapshot
+	 * @param currentOffering  enrollment in the later snapshot
+	 * @return true if enrollment has decreased, false if it increased
+	 */
+	public boolean hasEnrollmentDecreased(Offering previousOffering, Offering currentOffering) {
+<span class="fc bfc" id="L57" title="All 2 branches covered.">		return calculateEnrollmentChanges(previousOffering, currentOffering) &lt; 0;</span>
+	}
+
+	/**
+	 * Checks whether enrollment is unchanged between two offerings.
+	 *
+	 * @param previousOffering the previous enrollment data
+	 * @param currentOffering  the current enrollment data
+	 * @return true if enrollment is unchanged otherwise false
+	 */
+
+	public boolean isEnrollmentSame(Offering previousOffering, Offering currentOffering) {
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		return calculateEnrollmentChanges(previousOffering, currentOffering) == 0;</span>
+	}
+}
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

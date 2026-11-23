@@ -97,7 +97,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">CalculateEPS</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates an enrollment projection calc.</div>
+</div>
 </div>
 </section>
 </li>
@@ -122,7 +124,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentDecreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentDecreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
  <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Calculates if the enrollment change is  negative between two offerings.</div>
+<div class="block">Calculates if the enrollment change is negative between two offerings.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasEnrollmentIncreased(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">hasEnrollmentIncreased</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
@@ -133,7 +135,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnrollmentSame(edu.odu.cs.cs350.Offering,edu.odu.cs.cs350.Offering)" class="member-name-link">isEnrollmentSame</a><wbr>(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
  <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks whether enrollment is unchanged between two offerings.</div>
+</div>
 </div>
 </div>
 </div>
@@ -156,6 +160,7 @@ loadScripts(document, 'script');</script>
 <h3>CalculateEPS</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CalculateEPS</span>()</div>
+<div class="block">Creates an enrollment projection calc.</div>
 </div>
 </section>
 </li>
@@ -209,7 +214,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasEnrollmentDecreased</span><wbr><span class="parameters">(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
  <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</span></div>
-<div class="block">Calculates if the enrollment change is  negative between two offerings.</div>
+<div class="block">Calculates if the enrollment change is negative between two offerings.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>previousOffering</code> - enrollment in the earlier snapshot</dd>
@@ -226,6 +231,14 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isEnrollmentSame</span><wbr><span class="parameters">(<a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;previousOffering,
  <a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&nbsp;currentOffering)</span></div>
+<div class="block">Checks whether enrollment is unchanged between two offerings.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>previousOffering</code> - the previous enrollment data</dd>
+<dd><code>currentOffering</code> - the current enrollment data</dd>
+<dt>Returns:</dt>
+<dd>true if enrollment is unchanged otherwise false</dd>
+</dl>
 </div>
 </section>
 </li>

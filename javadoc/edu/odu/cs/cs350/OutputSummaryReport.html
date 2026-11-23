@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">OutputSummaryReport</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Class to print/output summary of enrollment data</div>
+<div class="block">Class to print/output summary of enrollment data.</div>
 </div>
 </section>
 <section class="summary">
@@ -99,7 +99,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">OutputSummaryReport</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates a summary enrollment report generator.</div>
+</div>
 </div>
 </section>
 </li>
@@ -126,18 +128,18 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#displayEnrollmentProgress(edu.odu.cs.cs350.EnrollmentWindow,java.time.LocalDate)" class="member-name-link">displayEnrollmentProgress</a><wbr>(<a href="EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a>&nbsp;enrollmentWindow,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a>&nbsp;snapshotDate)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Displays the enrollment period elapsed</div>
+<div class="block">Displays the enrollment period elapsed.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#displayLatestSnapshot(java.util.List)" class="member-name-link">displayLatestSnapshot</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;&nbsp;snapshots)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Displays the enrollment summary from the last snapshot 
+<div class="block">Displays the enrollment summary from the last snapshot
 in a list of snapshots.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#displayMultipleCourses(java.util.List)" class="member-name-link">displayMultipleCourses</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&nbsp;sections)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Displays a summary of courses by combining sections belonging 
+<div class="block">Displays a summary of courses by combining sections belonging
 to the same course.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
@@ -175,6 +177,7 @@ to the same course.</div>
 <h3>OutputSummaryReport</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">OutputSummaryReport</span>()</div>
+<div class="block">Creates a summary enrollment report generator.</div>
 </div>
 </section>
 </li>
@@ -192,11 +195,11 @@ to the same course.</div>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">displayEnrollmentProgress</span><wbr><span class="parameters">(<a href="EnrollmentWindow.html" title="class in edu.odu.cs.cs350">EnrollmentWindow</a>&nbsp;enrollmentWindow,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a>&nbsp;snapshotDate)</span></div>
-<div class="block">Displays the enrollment period elapsed</div>
+<div class="block">Displays the enrollment period elapsed.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>enrollmentWindow</code> - </dd>
-<dd><code>snapshotDate</code> - </dd>
+<dd><code>enrollmentWindow</code> - the enrollment period being analyzed</dd>
+<dd><code>snapshotDate</code> - the date of the enrollment snapshot</dd>
 </dl>
 </div>
 </section>
@@ -209,14 +212,15 @@ to the same course.</div>
  int&nbsp;enrollment,
  int&nbsp;projected,
  int&nbsp;totalCapacity)</span></div>
-<div class="block">Builds one row of the summary report for a course. The row starts with "*" 
-if the projected enrollment is more than the capacity, or a blank space otherwise.</div>
+<div class="block">Builds one row of the summary report for a course. The row starts with "*"
+if the projected enrollment is more than the capacity, or a blank space
+otherwise.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>courseName</code> - , the name of the course</dd>
-<dd><code>enrollment</code> - , the course's current total enrollment</dd>
-<dd><code>projected</code> - , the course's projected enrollment</dd>
-<dd><code>totalCapacity</code> - , the course's total capacity</dd>
+<dd><code>courseName</code> - the name of the course</dd>
+<dd><code>enrollment</code> - the course's current total enrollment</dd>
+<dd><code>projected</code> - the course's projected enrollment</dd>
+<dd><code>totalCapacity</code> - the course's total capacity</dd>
 <dt>Returns:</dt>
 <dd>the formatted report row</dd>
 </dl>
@@ -263,7 +267,7 @@ equal to current enrollment.</div>
 <h3>displayMultipleCourses</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">displayMultipleCourses</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&nbsp;sections)</span></div>
-<div class="block">Displays a summary of courses by combining sections belonging 
+<div class="block">Displays a summary of courses by combining sections belonging
 to the same course.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -277,7 +281,7 @@ to the same course.</div>
 <h3>displayLatestSnapshot</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">displayLatestSnapshot</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&gt;&nbsp;snapshots)</span></div>
-<div class="block">Displays the enrollment summary from the last snapshot 
+<div class="block">Displays the enrollment summary from the last snapshot
 in a list of snapshots. Logs a warning if there are no snapshots.</div>
 <dl class="notes">
 <dt>Parameters:</dt>

@@ -4,16 +4,45 @@
  * Represents a section of a course.
  */
 public class Section {
-	
+	/**
+	 * Name of the course.
+	 */
 	private String courseName;
+	/**
+	 * Course reference number.
+	 */
 	private String CRN;
+	/**
+	 * Subject for the section.
+	 */
 	private String subject;
+	/**
+	 * Campus where the section is offered.
+	 */
 	private String campus;
+	/**
+	 * Max enrollment capacity of the section.
+	 */
 	private int capacity;
+	/**
+	 * Current number of students enrolled.
+	 */
 	private int currentEnrollment;
+	/**
+	 * Cross List identifier.
+	 */
 	private String crossList;
+	/**
+	 * Overall capacity for the offering.
+	 */
 	private int overallCapacity;
+	/**
+	 * Overall enrollment of the specified offering.
+	 */
 	private int overallEnrollment;
+	/**
+	 * Link identifier for the specificed section.
+	 */
 	private String link;
 
 	/**
@@ -21,8 +50,8 @@ public class Section {
 	 * Initializes courseName, CRN, and Subject to empty strings.
 	 */
 	public Section() {
-<span class="fc" id="L24">		this(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, &quot;&quot;);</span>
-<span class="fc" id="L25">	}</span>
+<span class="fc" id="L53">		this(&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, &quot;&quot;);</span>
+<span class="fc" id="L54">	}</span>
 
 	/**
 	 * Constructor for the Section class.
@@ -32,8 +61,8 @@ public class Section {
 	 * @param courseName the name of the course
 	 */
 	public Section(String courseName) {
-<span class="fc" id="L35">		this(courseName, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, &quot;&quot;);</span>
-<span class="fc" id="L36">	}</span>
+<span class="fc" id="L64">		this(courseName, &quot;&quot;, &quot;&quot;, &quot;&quot;, 0, 0, &quot;&quot;);</span>
+<span class="fc" id="L65">	}</span>
 
 	/**
 	 * Constructor for the Section class.
@@ -47,15 +76,15 @@ public class Section {
 	 * @param currentEnrollment the number of students currently enrolled in the section
 	 * @param crossList the cross-list section #
 	 */
-<span class="fc" id="L50">	public Section(String courseName, String CRN, String subject, String campus, int capacity, int currentEnrollment, String crossList) {</span>
-<span class="fc" id="L51">		this.courseName = courseName;</span>
-<span class="fc" id="L52">		this.CRN = CRN;</span>
-<span class="fc" id="L53">		this.subject = subject;</span>
-<span class="fc" id="L54">		this.campus = campus;</span>
-<span class="fc" id="L55">		this.capacity = capacity;</span>
-<span class="fc" id="L56">		this.currentEnrollment = currentEnrollment;</span>
-<span class="fc" id="L57">		this.crossList = crossList;</span>
-<span class="fc" id="L58">	}</span>
+<span class="fc" id="L79">	public Section(String courseName, String CRN, String subject, String campus, int capacity, int currentEnrollment, String crossList) {</span>
+<span class="fc" id="L80">		this.courseName = courseName;</span>
+<span class="fc" id="L81">		this.CRN = CRN;</span>
+<span class="fc" id="L82">		this.subject = subject;</span>
+<span class="fc" id="L83">		this.campus = campus;</span>
+<span class="fc" id="L84">		this.capacity = capacity;</span>
+<span class="fc" id="L85">		this.currentEnrollment = currentEnrollment;</span>
+<span class="fc" id="L86">		this.crossList = crossList;</span>
+<span class="fc" id="L87">	}</span>
 
 	/**
 	 * Sets the name of the course.
@@ -63,15 +92,15 @@ public class Section {
 	 * @param courseName the name of the course
 	 */
 	public void setCourseName(String courseName) {
-<span class="fc" id="L66">		this.courseName = courseName;</span>
-<span class="fc" id="L67">	}</span>
+<span class="fc" id="L95">		this.courseName = courseName;</span>
+<span class="fc" id="L96">	}</span>
 
 	/**
 	 * Gets the name of the course.
 	 * @return the name of the course
 	 */
 	public String getCourseName() {
-<span class="fc" id="L74">		return courseName;</span>
+<span class="fc" id="L103">		return courseName;</span>
 	}
 
 	/**
@@ -79,15 +108,15 @@ public class Section {
 	 * @param subject the subject of the section
 	 */
 	public void setSubject(String subject) {
-<span class="fc" id="L82">		this.subject = subject;</span>
-<span class="fc" id="L83">	}</span>
+<span class="fc" id="L111">		this.subject = subject;</span>
+<span class="fc" id="L112">	}</span>
 
 	/**
 	 * Gets the subject of the section.
 	 * @return the subject of the section
 	 */
 	public String getSubject() {
-<span class="fc" id="L90">		return subject;</span>
+<span class="fc" id="L119">		return subject;</span>
 	}
 
 	/**
@@ -95,15 +124,15 @@ public class Section {
 	 * @param CRN the CRN of the section
 	 */
 	public void setCRN(String CRN) {
-<span class="fc" id="L98">		this.CRN = CRN;</span>
-<span class="fc" id="L99">	}</span>
+<span class="fc" id="L127">		this.CRN = CRN;</span>
+<span class="fc" id="L128">	}</span>
 
 	/**
 	 * Gets the CRN of the section.
 	 * @return the CRN of the section
 	 */
 	public String getCRN() {
-<span class="fc" id="L106">		return CRN;</span>
+<span class="fc" id="L135">		return CRN;</span>
 	}
 	
 	/**
@@ -111,15 +140,15 @@ public class Section {
 	 * @param campus the campus of the section
 	 */
 	public void setCampus(String campus) {
-<span class="fc" id="L114">		this.campus = campus;	</span>
-<span class="fc" id="L115">	}</span>
+<span class="fc" id="L143">		this.campus = campus;	</span>
+<span class="fc" id="L144">	}</span>
 
 	/**
 	 * Gets the campus of the section.
 	 * @return the campus of the section
 	 */
 	public String getCampus() {
-<span class="fc" id="L122">		return campus;</span>
+<span class="fc" id="L151">		return campus;</span>
 	}
 
 	/**
@@ -127,15 +156,15 @@ public class Section {
 	 * @param capacity the capacity of the section
 	 */
 	public void setCapacity(int capacity) {
-<span class="fc" id="L130">		this.capacity = capacity;</span>
-<span class="fc" id="L131">	}</span>
+<span class="fc" id="L159">		this.capacity = capacity;</span>
+<span class="fc" id="L160">	}</span>
 
 	/**
 	 * Gets the capacity of the section.
 	 * @return the capacity of the section
 	 */
 	public int getCapacity() {
-<span class="fc" id="L138">		return capacity;</span>
+<span class="fc" id="L167">		return capacity;</span>
 	}
 
 	/**
@@ -144,8 +173,8 @@ public class Section {
 	 * @param overallCapacity the overall offering capacity
 	 */
 	public void setOverallCapacity(int overallCapacity) {
-<span class="fc" id="L147">		this.overallCapacity = overallCapacity;</span>
-<span class="fc" id="L148">	}</span>
+<span class="fc" id="L176">		this.overallCapacity = overallCapacity;</span>
+<span class="fc" id="L177">	}</span>
 
 	/**
  	*Gets the overall capacity of the offering associated with this section. 
@@ -153,7 +182,7 @@ public class Section {
  	* @return the overall offering capacity
  	*/
 	public int getOverallCapacity() {
-<span class="fc" id="L156">		return overallCapacity;</span>
+<span class="fc" id="L185">		return overallCapacity;</span>
 	}
 
 
@@ -162,15 +191,15 @@ public class Section {
 	 * @param currentEnrollment the number of students currently enrolled
 	 */
 	public void setCurrentEnrollment(int currentEnrollment) {
-<span class="fc" id="L165">		this.currentEnrollment = currentEnrollment;</span>
-<span class="fc" id="L166">	}</span>
+<span class="fc" id="L194">		this.currentEnrollment = currentEnrollment;</span>
+<span class="fc" id="L195">	}</span>
 
 	/**
 	 * Gets the number of students currently enrolled in the section.
 	 * @return the number of students currently enrolled
 	 */
 	public int getCurrentEnrollment() {
-<span class="fc" id="L173">		return currentEnrollment;</span>
+<span class="fc" id="L202">		return currentEnrollment;</span>
 	}
 
 	/**
@@ -179,8 +208,8 @@ public class Section {
 	 * @param overallEnrollment the overall offering enrollment
 	 */
 	public void setOverallEnrollment(int overallEnrollment) {
-<span class="fc" id="L182">		this.overallEnrollment = overallEnrollment;</span>
-<span class="fc" id="L183">	}</span>
+<span class="fc" id="L211">		this.overallEnrollment = overallEnrollment;</span>
+<span class="fc" id="L212">	}</span>
 
 	/**
 	 * Gets the overall enrollment of the offering associated with this section.
@@ -188,7 +217,7 @@ public class Section {
 	 * @return the overall offering enrollment
 	 */
 	public int getOverallEnrollment() {
-<span class="fc" id="L191">		return overallEnrollment;</span>
+<span class="fc" id="L220">		return overallEnrollment;</span>
 	}
 
 	/**
@@ -196,15 +225,15 @@ public class Section {
 	 * @param crossList the cross-list section number
 	 */
 	public void setCrossList(String crossList) {
-<span class="fc" id="L199">		this.crossList = crossList;</span>
-<span class="fc" id="L200">	}</span>
+<span class="fc" id="L228">		this.crossList = crossList;</span>
+<span class="fc" id="L229">	}</span>
 
 	/**
 	 * Gets the cross-list section number.
 	 * @return the cross-list section number
 	 */
 	public String getCrossList() {
-<span class="fc" id="L207">		return crossList;</span>
+<span class="fc" id="L236">		return crossList;</span>
 	}
 
 	/**
@@ -213,8 +242,8 @@ public class Section {
 	 * @param link the section's LINK identifier
 	 */
 	public void setLink(String link) {
-<span class="fc" id="L216">		this.link = link;</span>
-<span class="fc" id="L217">	}</span>
+<span class="fc" id="L245">		this.link = link;</span>
+<span class="fc" id="L246">	}</span>
 
 	/**
 	 * Gets the LINK identifier for this section.
@@ -222,7 +251,7 @@ public class Section {
 	 * @return the section's LINK identifier
 	 */
 	public String getLink() {
-<span class="fc" id="L225">		return link;</span>
+<span class="fc" id="L254">		return link;</span>
 	}
 
 	/**
@@ -232,7 +261,7 @@ public class Section {
  	 * @return true if the LINK identifier ends in 1, false otherwise
 	 */
 	public boolean isLecture() {
-<span class="fc bfc" id="L235" title="All 4 branches covered.">    	return link != null &amp;&amp; link.endsWith(&quot;1&quot;);</span>
+<span class="fc bfc" id="L264" title="All 4 branches covered.">    	return link != null &amp;&amp; link.endsWith(&quot;1&quot;);</span>
 	}
 
 	/**
@@ -242,7 +271,7 @@ public class Section {
  	 * @return true if the LINK identifier ends in 2, false otherwise
 	 */
 	public boolean isRecitation() {
-<span class="fc bfc" id="L245" title="All 4 branches covered.">    	return link != null &amp;&amp; link.endsWith(&quot;2&quot;);</span>
+<span class="fc bfc" id="L274" title="All 4 branches covered.">    	return link != null &amp;&amp; link.endsWith(&quot;2&quot;);</span>
 	}
 
 	/**
@@ -252,7 +281,7 @@ public class Section {
  	 * @return true if the LINK identifier ends in 3, false otherwise
 	 */
 	public boolean isLab() {
-<span class="fc bfc" id="L255" title="All 4 branches covered.">    	return link != null &amp;&amp; link.endsWith(&quot;3&quot;);</span>
+<span class="fc bfc" id="L284" title="All 4 branches covered.">    	return link != null &amp;&amp; link.endsWith(&quot;3&quot;);</span>
 	}
 
 	/**
@@ -262,7 +291,7 @@ public class Section {
 	 * false otherwise.
 	 */
 	public boolean hasLink() {
-<span class="fc bfc" id="L265" title="All 4 branches covered.">		return link != null &amp;&amp; !link.isBlank();</span>
+<span class="fc bfc" id="L294" title="All 4 branches covered.">		return link != null &amp;&amp; !link.isBlank();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
