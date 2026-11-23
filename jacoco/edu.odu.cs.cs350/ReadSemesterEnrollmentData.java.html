@@ -6,6 +6,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,31 +17,37 @@ import org.apache.commons.csv.CSVRecord;
 /**
  * Reads/validates semester enrollment data from CSV files and date information.
  */
-<span class="fc" id="L19">public class ReadSemesterEnrollmentData {</span>
+<span class="fc" id="L20">public class ReadSemesterEnrollmentData {</span>
+
         /**
-         * Read/validate the semester date from data text file
+         * Read/validate the semester date from data text file.
          * 
          * @param semesterFolder Path to the semester folder
          * @return List of LocalDate objects representing the semester start and end
          *         dates
          * @throws IOException if the dates.txt file is missing or has an invalid number
-         *                     of dates
+         *                     of dates or has an invalid date format
          */
         public List&lt;LocalDate&gt; readDates(Path semesterFolder) throws IOException {
                 // Find the dates.txt file inside the semester folder
-<span class="fc" id="L31">                Path filePath = semesterFolder.resolve(&quot;dates.txt&quot;);</span>
-<span class="fc bfc" id="L32" title="All 2 branches covered.">                if (!Files.exists(filePath)) {</span>
-<span class="fc" id="L33">                        throw new IOException(&quot;Missing dates.txt in &quot; + semesterFolder.getFileName());</span>
+<span class="fc" id="L33">                Path filePath = semesterFolder.resolve(&quot;dates.txt&quot;);</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">                if (!Files.exists(filePath)) {</span>
+<span class="fc" id="L35">                        throw new IOException(&quot;Missing dates.txt in &quot; + semesterFolder.getFileName());</span>
                 }
-<span class="fc" id="L35">                List&lt;String&gt; lines = Files.readAllLines(filePath);</span>
-<span class="fc bfc" id="L36" title="All 2 branches covered.">                if (lines.size() != 2) {</span>
-<span class="fc" id="L37">                        throw new IOException(&quot;Invalid number of dates in &quot; + semesterFolder.getFileName());</span>
+<span class="fc" id="L37">                List&lt;String&gt; lines = Files.readAllLines(filePath);</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">                if (lines.size() != 2) {</span>
+<span class="fc" id="L39">                        throw new IOException(&quot;Invalid number of dates in &quot; + semesterFolder.getFileName());</span>
                 }
-<span class="fc" id="L39">                List&lt;LocalDate&gt; dates = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">                for (String line : lines) {</span>
-<span class="fc" id="L41">                        dates.add(LocalDate.parse(line));</span>
-<span class="fc" id="L42">                }</span>
-<span class="fc" id="L43">                return dates;</span>
+<span class="fc" id="L41">                List&lt;LocalDate&gt; dates = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                for (String line : lines) {</span>
+                        try {
+<span class="fc" id="L44">                                dates.add(LocalDate.parse(line.trim()));</span>
+<span class="fc" id="L45">                        } catch (DateTimeParseException e){</span>
+<span class="fc" id="L46">                                throw new IOException(&quot;Invalid date in dates.txt: &quot; + line, e);</span>
+<span class="fc" id="L47">                        }</span>
+
+<span class="fc" id="L49">                }</span>
+<span class="fc" id="L50">                return dates;</span>
         }
 
         /**
@@ -51,55 +58,56 @@ import org.apache.commons.csv.CSVRecord;
          * @return the value as a whole number
          */
         public static int parseWholeNumber(String value) {
-<span class="fc" id="L54">                String trimmed = value.trim();</span>
-<span class="fc bfc" id="L55" title="All 2 branches covered.">                if (trimmed.isEmpty()) {</span>
-<span class="fc" id="L56">                        return 0;</span>
+<span class="fc" id="L61">                String trimmed = value.trim();</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">                if (trimmed.isEmpty()) {</span>
+<span class="fc" id="L63">                        return 0;</span>
                 }
-<span class="fc" id="L58">                return (int) Math.round(Double.parseDouble(trimmed));</span>
+<span class="fc" id="L65">                return (int) Math.round(Double.parseDouble(trimmed));</span>
         }
 
         /**
-         * Read a CSV enrollment snapshot and return a list of section objects
+         * Read a CSV enrollment snapshot and return a list of section objects.
          * 
          * @param enrollmentSnapshotFile path to the enrollment snapshot CSV file
          * @return list of section objects
          * @throws IOException if the file has bad data or missing data
          */
         public List&lt;Section&gt; readEnrollmentSnapshot(Path enrollmentSnapshotFile) throws IOException {
-<span class="fc" id="L69">                List&lt;Section&gt; sections = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L70">                try (CSVParser parser = CSVParser.parse(enrollmentSnapshotFile, StandardCharsets.UTF_8,</span>
-<span class="fc" id="L71">                                CSVFormat.DEFAULT.withFirstRecordAsHeader().withAllowMissingColumnNames())) {</span>
+<span class="fc" id="L76">                List&lt;Section&gt; sections = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L77">                try (CSVParser parser = CSVParser.parse(enrollmentSnapshotFile, StandardCharsets.UTF_8,</span>
+<span class="fc" id="L78">                                CSVFormat.DEFAULT.withFirstRecordAsHeader().withAllowMissingColumnNames())) {</span>
 
-                                // Read each row of the CSV file and turn it in to a Section object
-<span class="fc bfc" id="L74" title="All 2 branches covered.">                                for (CSVRecord row : parser) {</span>
-<span class="fc" id="L75">                                String courseReferenceNumber = row.get(&quot;CRN&quot;);</span>
-<span class="fc" id="L76">                                String subject = row.get(&quot;SUBJ&quot;);</span>
-<span class="fc" id="L77">                                String courseNumber = row.get(&quot;CRSE&quot;);</span>
-<span class="fc" id="L78">                                String campus = row.get(&quot;CAMPUS&quot;);</span>
+                        // Read each row of the CSV file and turn it in to a Section object
+<span class="fc bfc" id="L81" title="All 2 branches covered.">                        for (CSVRecord row : parser) {</span>
+<span class="fc" id="L82">                                String courseReferenceNumber = row.get(&quot;CRN&quot;);</span>
+<span class="fc" id="L83">                                String subject = row.get(&quot;SUBJ&quot;);</span>
+<span class="fc" id="L84">                                String courseNumber = row.get(&quot;CRSE&quot;);</span>
+<span class="fc" id="L85">                                String campus = row.get(&quot;CAMPUS&quot;);</span>
 
-<span class="fc" id="L80">                                int capacity = parseWholeNumber(row.get(&quot;XLST CAP&quot;));</span>
-<span class="fc" id="L81">                                int enrollment = parseWholeNumber(row.get(&quot;ENR&quot;));</span>
-<span class="fc" id="L82">                                String link = row.get(&quot;LINK&quot;).trim();</span>
-<span class="fc" id="L83">                                String crossList = (row.get(&quot;XLST GROUP&quot;));</span>
+<span class="fc" id="L87">                                int capacity = parseWholeNumber(row.get(&quot;XLST CAP&quot;));</span>
+<span class="fc" id="L88">                                int enrollment = parseWholeNumber(row.get(&quot;ENR&quot;));</span>
+<span class="fc" id="L89">                                String link = row.get(&quot;LINK&quot;).trim();</span>
+<span class="fc" id="L90">                                String crossList = (row.get(&quot;XLST GROUP&quot;));</span>
                                 // Pulling Overall Capacity value (blank means 0)
-<span class="fc" id="L85">                                int overallCapacity = parseWholeNumber(row.get(&quot;OVERALL CAP&quot;));</span>
+<span class="fc" id="L92">                                int overallCapacity = parseWholeNumber(row.get(&quot;OVERALL CAP&quot;));</span>
                                 // Pulling Overall Enrollment value (blank means 0)
-<span class="fc" id="L87">                                int overallEnrollment = parseWholeNumber(row.get(&quot;OVERALL ENR&quot;));</span>
-<span class="fc" id="L88">                                Section section = new Section(</span>
-                                                subject + courseNumber, courseReferenceNumber, subject, campus, capacity, enrollment,
+<span class="fc" id="L94">                                int overallEnrollment = parseWholeNumber(row.get(&quot;OVERALL ENR&quot;));</span>
+<span class="fc" id="L95">                                Section section = new Section(</span>
+                                                subject + courseNumber, courseReferenceNumber, subject, campus,
+                                                capacity, enrollment,
                                                 crossList);
                                 // Adding overall Capacity and Enrollment to the section.
-<span class="fc" id="L92">                                section.setOverallCapacity(overallCapacity);</span>
-<span class="fc" id="L93">                                section.setOverallEnrollment(overallEnrollment);</span>
-<span class="fc" id="L94">                                section.setLink(link);</span>
-<span class="fc" id="L95">                                sections.add(section);</span>
-<span class="fc" id="L96">                        }</span>
+<span class="fc" id="L100">                                section.setOverallCapacity(overallCapacity);</span>
+<span class="fc" id="L101">                                section.setOverallEnrollment(overallEnrollment);</span>
+<span class="fc" id="L102">                                section.setLink(link);</span>
+<span class="fc" id="L103">                                sections.add(section);</span>
+<span class="fc" id="L104">                        }</span>
                 }
-<span class="fc" id="L98">                return sections;</span>
+<span class="fc" id="L106">                return sections;</span>
         }
 
         /**
-         * Find/sort CSV snapshot files in a semester folder
+         * Find/sort CSV snapshot files in a semester folder.
          * 
          * @param semesterFolder path to the semester directory
          * @return Array list of snapshot files
@@ -107,32 +115,32 @@ import org.apache.commons.csv.CSVRecord;
          */
 
         public List&lt;Path&gt; locateEnrollmentSnapshots(Path semesterFolder) throws IOException {
-<span class="fc" id="L110">                List&lt;Path&gt; files = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L111">                try (DirectoryStream&lt;Path&gt; stream = Files.newDirectoryStream(semesterFolder, &quot;*.csv&quot;)) {</span>
+<span class="fc" id="L118">                List&lt;Path&gt; files = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L119">                try (DirectoryStream&lt;Path&gt; stream = Files.newDirectoryStream(semesterFolder, &quot;*.csv&quot;)) {</span>
 
-<span class="fc bfc" id="L113" title="All 2 branches covered.">                        for (Path file : stream) {</span>
-<span class="fc" id="L114">                                files.add(file);</span>
-<span class="fc" id="L115">                        }</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">                        for (Path file : stream) {</span>
+<span class="fc" id="L122">                                files.add(file);</span>
+<span class="fc" id="L123">                        }</span>
                 }
                 // Put the snapshot files in date order based on filename
-<span class="fc" id="L118">                files.sort(null);</span>
-<span class="fc" id="L119">                return files;</span>
+<span class="fc" id="L126">                files.sort(null);</span>
+<span class="fc" id="L127">                return files;</span>
         }
 
         /**
-         * Load snapshots for specified date range with no cutoff date
+         * Load snapshots for specified date range with no cutoff date.
          * 
          * @param semesterFolder containing the snapshots and date files
          * @return array list of snapshots
          * @throws IOException if the folder is blank or missing files
          */
         public List&lt;List&lt;Section&gt;&gt; readSemester(Path semesterFolder) throws IOException {
-<span class="fc" id="L130">                return readSemester(semesterFolder, null);</span>
+<span class="fc" id="L138">                return readSemester(semesterFolder, null);</span>
         }
 
         /**
          * Load snapshots for specified date range, ignoring any snapshot
-         * dated after the optional cutoff date
+         * dated after the optional cutoff date.
          * 
          * @param semesterFolder containing the snapshots and date files
          * @param cutoffDate     last snapshot date to include, or null for no cutoff
@@ -141,39 +149,39 @@ import org.apache.commons.csv.CSVRecord;
          */
         public List&lt;List&lt;Section&gt;&gt; readSemester(Path semesterFolder, LocalDate cutoffDate)
                         throws IOException {
-<span class="fc" id="L144">                List&lt;List&lt;Section&gt;&gt; snapshots = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L145">                List&lt;Path&gt; files = locateEnrollmentSnapshots(semesterFolder);</span>
+<span class="fc" id="L152">                List&lt;List&lt;Section&gt;&gt; snapshots = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L153">                List&lt;Path&gt; files = locateEnrollmentSnapshots(semesterFolder);</span>
                 // Get the enrollment period's start and end dates
-<span class="fc" id="L147">                EnrollmentWindow window = readEnrollmentWindow(semesterFolder);</span>
-<span class="fc" id="L148">                LocalDate startDate = window.getStartDate();</span>
-<span class="fc" id="L149">                LocalDate endDate = window.getEndDate();</span>
-<span class="fc" id="L150">                boolean foundAfterEndDate = false;</span>
-<span class="fc bfc" id="L151" title="All 2 branches covered.">                for (Path file : files) {</span>
-<span class="fc" id="L152">                        String fileName = file.getFileName().toString();</span>
-<span class="fc" id="L153">                        String dateString = fileName.replace(&quot;.csv&quot;, &quot;&quot;);</span>
-<span class="fc" id="L154">                        LocalDate snapshotDate = LocalDate.parse(dateString);</span>
+<span class="fc" id="L155">                EnrollmentWindow window = readEnrollmentWindow(semesterFolder);</span>
+<span class="fc" id="L156">                LocalDate startDate = window.getStartDate();</span>
+<span class="fc" id="L157">                LocalDate endDate = window.getEndDate();</span>
+<span class="fc" id="L158">                boolean foundAfterEndDate = false;</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">                for (Path file : files) {</span>
+<span class="fc" id="L160">                        String fileName = file.getFileName().toString();</span>
+<span class="fc" id="L161">                        String dateString = fileName.replace(&quot;.csv&quot;, &quot;&quot;);</span>
+<span class="fc" id="L162">                        LocalDate snapshotDate = LocalDate.parse(dateString);</span>
                         // Ignore snapshots dated after the cutoff date
-<span class="fc bfc" id="L156" title="All 4 branches covered.">                        if (cutoffDate != null &amp;&amp; snapshotDate.isAfter(cutoffDate)) {</span>
-<span class="fc" id="L157">                                continue;</span>
+<span class="fc bfc" id="L164" title="All 4 branches covered.">                        if (cutoffDate != null &amp;&amp; snapshotDate.isAfter(cutoffDate)) {</span>
+<span class="fc" id="L165">                                continue;</span>
                         }
                         // Skip files dated before enrollment starts
                         // Includ only the first snapshot after enrollment ends
-<span class="fc bfc" id="L161" title="All 2 branches covered.">                        if (snapshotDate.isBefore(startDate)) {</span>
-<span class="fc" id="L162">                                continue;</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">                        if (snapshotDate.isBefore(startDate)) {</span>
+<span class="fc" id="L170">                                continue;</span>
                         }
-<span class="fc bfc" id="L164" title="All 2 branches covered.">                        if (snapshotDate.isAfter(endDate)) {</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">                        if (snapshotDate.isAfter(endDate)) {</span>
 
-<span class="pc bpc" id="L166" title="1 of 2 branches missed.">                                if (foundAfterEndDate) {</span>
-<span class="nc" id="L167">                                        continue;</span>
+<span class="pc bpc" id="L174" title="1 of 2 branches missed.">                                if (foundAfterEndDate) {</span>
+<span class="nc" id="L175">                                        continue;</span>
                                 }
-<span class="fc" id="L169">                                foundAfterEndDate = true;</span>
+<span class="fc" id="L177">                                foundAfterEndDate = true;</span>
                         }
-<span class="fc" id="L171">                        snapshots.add(readEnrollmentSnapshot(file));</span>
-<span class="fc" id="L172">                }</span>
-<span class="fc bfc" id="L173" title="All 2 branches covered.">                if (snapshots.size() &lt; 2) {</span>
-<span class="fc" id="L174">                        throw new IOException(&quot;Insufficient snapshots in &quot; + semesterFolder.getFileName());</span>
+<span class="fc" id="L179">                        snapshots.add(readEnrollmentSnapshot(file));</span>
+<span class="fc" id="L180">                }</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">                if (snapshots.size() &lt; 2) {</span>
+<span class="fc" id="L182">                        throw new IOException(&quot;Insufficient snapshots in &quot; + semesterFolder.getFileName());</span>
                 }
-<span class="fc" id="L176">                return snapshots;</span>
+<span class="fc" id="L184">                return snapshots;</span>
         }
 
         /**
@@ -185,9 +193,9 @@ import org.apache.commons.csv.CSVRecord;
          */
         public EnrollmentWindow readEnrollmentWindow(Path semesterFolder)
                         throws IOException {
-<span class="fc" id="L188">                List&lt;LocalDate&gt; dates = readDates(semesterFolder);</span>
+<span class="fc" id="L196">                List&lt;LocalDate&gt; dates = readDates(semesterFolder);</span>
 
-<span class="fc" id="L190">                return new EnrollmentWindow(dates.get(0), dates.get(1));</span>
+<span class="fc" id="L198">                return new EnrollmentWindow(dates.get(0), dates.get(1));</span>
         }
 
 }
