@@ -150,7 +150,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTotalCapacity()" class="member-name-link">getTotalCapacity</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Calculates the total capacity of an offering without 
+<div class="block">Calculates the total capacity of an offering without
  double-counting cross-listed sections.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
@@ -161,7 +161,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#groupOfferingByCourse(java.util.List)" class="member-name-link">groupOfferingByCourse</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&nbsp;snapshot)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Groups a snapshot's lecture sections into one Offering per course, sorted by course name.</div>
+<div class="block">Groups a snapshot's lecture sections into one Offering per course, sorted by
+ course name.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeSection(edu.odu.cs.cs350.Section)" class="member-name-link">removeSection</a><wbr>(<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&nbsp;section)</code></div>
@@ -310,7 +311,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Adds a new section to the the offering.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>section</code> - the individual section inside of the lists of sections in the offering</dd>
+<dd><code>section</code> - the individual section inside of the lists of sections in the
+                offering</dd>
 </dl>
 </section>
 </li>
@@ -332,7 +334,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Removes an existing section to the the offering.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>section</code> - the individual section inside of the lists of sections in the offering</dd>
+<dd><code>section</code> - the individual section inside of the lists of sections in the
+                offering</dd>
 </dl>
 </section>
 </li>
@@ -351,7 +354,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getTotalCapacity()">
 <h3>getTotalCapacity</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTotalCapacity</span>()</div>
-<div class="block">Calculates the total capacity of an offering without 
+<div class="block">Calculates the total capacity of an offering without
  double-counting cross-listed sections.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -369,7 +372,8 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>CRN</code> - the course reference number of the section</dd>
 <dt>Returns:</dt>
-<dd>null if the offering is empty or if the search does not find the CRN or the section whose CRN matches the one in the parameter.</dd>
+<dd>null if the offering is empty or if the search does not find the CRN
+         or the section whose CRN matches the one in the parameter.</dd>
 </dl>
 </section>
 </li>
@@ -380,7 +384,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Gets a the number of sections that are at capacity or above capacity.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the number of section that were identified as being at capacity of above capacity.</dd>
+<dd>the number of section that were identified as being at capacity of
+         above capacity.</dd>
 </dl>
 </section>
 </li>
@@ -388,12 +393,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="groupOfferingByCourse(java.util.List)">
 <h3>groupOfferingByCourse</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/SortedMap.html" title="class or interface in java.util" class="external-link">SortedMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="Offering.html" title="class in edu.odu.cs.cs350">Offering</a>&gt;</span>&nbsp;<span class="element-name">groupOfferingByCourse</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Section.html" title="class in edu.odu.cs.cs350">Section</a>&gt;&nbsp;snapshot)</span></div>
-<div class="block">Groups a snapshot's lecture sections into one Offering per course, sorted by course name.</div>
+<div class="block">Groups a snapshot's lecture sections into one Offering per course, sorted by
+ course name.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>snapshot</code> - the snapshot that gets organize by courses</dd>
 <dt>Returns:</dt>
-<dd>courses the course names mapped to the Offering holding their sections</dd>
+<dd>courses the course names mapped to the Offering holding their
+         sections</dd>
 </dl>
 </section>
 </li>
