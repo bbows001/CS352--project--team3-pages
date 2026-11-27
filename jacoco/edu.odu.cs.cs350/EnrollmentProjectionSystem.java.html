@@ -117,56 +117,57 @@ public class EnrollmentProjectionSystem {
         // Set beginning and end of enrollment dates by retrieving dates from list
 <span class="fc" id="L118">        window.setStartDate(dates.get(0));</span>
 <span class="fc" id="L119">        window.setEndDate(dates.get(1));</span>
+        // Collect the dates of eligible enrollment snapshots
+<span class="fc" id="L121">        List&lt;LocalDate&gt; snapshotDates = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L122">            boolean foundAfterEndDate = false;</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            for (Path file : reader.locateEnrollmentSnapshots(semesterFolder)) {</span>
+
+<span class="fc" id="L125">                String fileName = file.getFileName().toString();</span>
+<span class="fc" id="L126">                String dateText = fileName.replace(&quot;.csv&quot;, &quot;&quot;);</span>
+<span class="fc" id="L127">                LocalDate date = LocalDate.parse(dateText);</span>
+
+                // Skip snapshots after cutoff date
+<span class="fc bfc" id="L130" title="All 4 branches covered.">                if (cutoffDate != null &amp;&amp; date.isAfter(cutoffDate)) {</span>
+<span class="fc" id="L131">                    continue;</span>
+                }
+                // Skip snapshots before enrollment begins
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">                if (date.isBefore(window.getStartDate())) {</span>
+<span class="nc" id="L135">                    continue;</span>
+                }
+                // Include only the first snapshot after enrollment ends
+<span class="fc bfc" id="L138" title="All 2 branches covered.">                if (date.isAfter(window.getEndDate())) {</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">                    if (foundAfterEndDate) {</span>
+<span class="nc" id="L140">                        continue;</span>
+                    }
+<span class="fc" id="L142">                    foundAfterEndDate = true;</span>
+                }
+<span class="fc" id="L144">                snapshotDates.add(date);</span>
+<span class="fc" id="L145">            }</span>
 
         // Create object report to display info about enrollment progress
-<span class="fc" id="L122">        OutputSummaryReport report = new OutputSummaryReport();</span>
+<span class="fc" id="L148">        OutputSummaryReport report = new OutputSummaryReport();</span>
 
-        // Temp placeholder date to use as snapshot, update later
-<span class="fc" id="L125">        LocalDate snapshotDate = LocalDate.of(2026, 5, 19);</span>
+        // Snapshot for the date elidible.
+<span class="fc" id="L151">        LocalDate snapshotDate = snapshotDates.get(snapshotDates.size() - 1);</span>
 
         // Display how far along the enrollment period is based on snapshot
         // date and enrollment window
-<span class="fc" id="L129">        report.displayEnrollmentProgress(window, snapshotDate);</span>
+<span class="fc" id="L155">        report.displayEnrollmentProgress(window, snapshotDate);</span>
 
         // Last change for Sprint 1
         // Display course enrollment from the latest loaded CSV
-<span class="fc" id="L133">        report.displayLatestSnapshot(snapshots);</span>
+<span class="fc" id="L159">        report.displayLatestSnapshot(snapshots);</span>
 
         // Create detailed Excel enrollment report
-<span class="fc" id="L136">        OutputDetailedReport detailedReport = new OutputDetailedReport();</span>
-<span class="fc" id="L137">        try (Workbook workbook = detailedReport.createWorkbook()) {</span>
-<span class="fc" id="L138">            List&lt;LocalDate&gt; snapshotDates = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L139">            boolean foundAfterEndDate = false;</span>
-<span class="fc bfc" id="L140" title="All 2 branches covered.">            for (Path file : reader.locateEnrollmentSnapshots(semesterFolder)) {</span>
-
-<span class="fc" id="L142">                String fileName = file.getFileName().toString();</span>
-<span class="fc" id="L143">                String dateText = fileName.replace(&quot;.csv&quot;, &quot;&quot;);</span>
-<span class="fc" id="L144">                LocalDate date = LocalDate.parse(dateText);</span>
-
-                // Skip snapshots after cutoff date
-<span class="fc bfc" id="L147" title="All 4 branches covered.">                if (cutoffDate != null &amp;&amp; date.isAfter(cutoffDate)) {</span>
-<span class="fc" id="L148">                    continue;</span>
-                }
-                // Skip snapshots before enrollment begins
-<span class="pc bpc" id="L151" title="1 of 2 branches missed.">                if (date.isBefore(window.getStartDate())) {</span>
-<span class="nc" id="L152">                    continue;</span>
-                }
-                // Include only the first snapshot after enrollment ends
-<span class="fc bfc" id="L155" title="All 2 branches covered.">                if (date.isAfter(window.getEndDate())) {</span>
-<span class="pc bpc" id="L156" title="1 of 2 branches missed.">                    if (foundAfterEndDate) {</span>
-<span class="nc" id="L157">                        continue;</span>
-                    }
-<span class="fc" id="L159">                    foundAfterEndDate = true;</span>
-                }
-<span class="fc" id="L161">                snapshotDates.add(date);</span>
-
-<span class="fc" id="L163">            }</span>
+<span class="fc" id="L162">        OutputDetailedReport detailedReport = new OutputDetailedReport();</span>
+<span class="fc" id="L163">        try (Workbook workbook = detailedReport.createWorkbook()) {</span>
+            
             // Add dates and enrollment data to excel workbook, then save
-<span class="fc" id="L165">            detailedReport.addSnapshotHeaders(workbook, snapshotDates);</span>
-<span class="fc" id="L166">            detailedReport.addSectionEnrollmentHistory(workbook, snapshots);</span>
-<span class="fc" id="L167">            detailedReport.saveWorkbook(workbook, Path.of(&quot;EnrollmentReport.xlsx&quot;));</span>
+<span class="fc" id="L166">            detailedReport.addSnapshotHeaders(workbook, snapshotDates);</span>
+<span class="fc" id="L167">            detailedReport.addSectionEnrollmentHistory(workbook, snapshots);</span>
+<span class="fc" id="L168">            detailedReport.saveWorkbook(workbook, Path.of(&quot;EnrollmentReport.xlsx&quot;));</span>
 
         }
-<span class="fc" id="L170">    }</span>
+<span class="fc" id="L171">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
